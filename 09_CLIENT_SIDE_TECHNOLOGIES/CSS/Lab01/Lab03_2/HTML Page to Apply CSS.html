@@ -35,6 +35,23 @@
 			border: 1px solid black;
 
 		}
+		span#content > p::after {
+			content: "read this";
+			color: yellow;
+		}
+		p#aboutus {
+			color: red;
+		}
+		span#content > p#aboutus {
+			color: yellowgreen;
+		}
+		/* the second one got applied as it has more specifity (2,0,2) than the first
+		one which only got (1,0,1) */
+		p#aboutus {
+			color: red !important;
+		}
+		/* it's now red as important always override the previous styles regardless their
+		specifity */
 	</style>
 </head>
 <body>
@@ -70,6 +87,11 @@
 			<p tabled-bordered> title1</p>
 			<p tabled-bordered> title2</p>
 			<p tabled-bordered> title3</p>
+			<span tabled-bordered> title1</span>
+			<span tabled-bordered> title2</span>
+			<span tabled-bordered> title3</span>
+			<!-- after doing p's to span they are beside each other 
+			 because the p is a block element while span is an inline element -->
 		</div>
 
 	</span>

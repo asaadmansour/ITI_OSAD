@@ -1,0 +1,25 @@
+p {
+  color: red;
+}
+p,
+div {
+  font-size: 12px;
+}
+div#mydiv > p.mainclass {
+  color: green;
+}
+div p {
+  color: orange;
+}
+input[type="text"].myClass {
+  color: blue;
+}
+div ~ span {
+  color: aqua;
+}
+p.myClass {
+  color: chartreuse;
+}
+div#myDiv {
+  color: chocolate;
+}

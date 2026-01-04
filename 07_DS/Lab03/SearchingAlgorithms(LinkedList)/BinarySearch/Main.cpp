@@ -1,3 +1,7 @@
+/**
+ * @file Main.cpp
+ * @brief Test for Binary Search.
+ */
 #include "BinarySearch.h"
 #include <iostream>
 using namespace std;

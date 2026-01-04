@@ -1,3 +1,7 @@
+/**
+ * @file SelectionSort.cpp
+ * @brief Implementation of Selection Sort on a Linked List.
+ */
 #include "SelectionSort.h"
 void SelectionSort::sort(LinkedList& linkedList) {
     if(linkedList.isEmpty()) return;

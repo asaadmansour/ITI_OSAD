@@ -1,3 +1,7 @@
+/**
+ * @file Main.cpp
+ * @brief Test for Linear Search.
+ */
 #include "LinearSearch.h"
 #include <iostream>
 using namespace std;

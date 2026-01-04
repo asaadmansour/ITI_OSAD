@@ -1,3 +1,9 @@
+/**
+ * @file Stack.cpp
+ * @brief Implementation of the Stack class.
+ *
+ * This file implements the methods of the Stack class defined in Stack.h.
+ */
 #include "Stack.h"
 void Stack::push(int element) {
     linkedList.addNode(element);

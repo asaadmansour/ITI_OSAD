@@ -1,3 +1,9 @@
+/**
+ * @file main.cpp
+ * @brief Entry point for the DoubleEndedQueue application.
+ *
+ * This file tests the functionality of the Dequeue class.
+ */
 #include "Dequeue.h"
 #include <iostream>
 using namespace std;

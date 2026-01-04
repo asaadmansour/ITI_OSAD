@@ -1,3 +1,10 @@
+/**
+ * @file LinkedList.h
+ * @brief Declaration of the LinkedList class.
+ *
+ * This file contains the definition of the LinkedList class, which implements
+ * a doubly linked list with various operations like insertion, deletion, and traversal.
+ */
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 

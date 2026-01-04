@@ -1,3 +1,9 @@
+/**
+ * @file Main.cpp
+ * @brief Entry point for the QueueLinkedList application.
+ *
+ * This file tests the functionality of the Queue class.
+ */
 #include "Queue.h"
 int main() {
     Queue q;

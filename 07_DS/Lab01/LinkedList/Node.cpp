@@ -1,3 +1,9 @@
+/**
+ * @file Node.cpp
+ * @brief Implementation of the Node class.
+ *
+ * This file implements the constructors for the Node class.
+ */
 #include "Node.h"
     Node::Node() {
         this->val = 0;

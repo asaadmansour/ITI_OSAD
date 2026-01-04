@@ -1,3 +1,9 @@
+/**
+ * @file Dequeue.cpp
+ * @brief Implementation of the Dequeue class.
+ *
+ * This file implements the methods of the Dequeue class.
+ */
 #include "Dequeue.h"
 void Dequeue::enqueueFront(int val) {
   if (linkedList.isEmpty()) {

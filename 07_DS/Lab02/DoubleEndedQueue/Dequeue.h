@@ -1,3 +1,9 @@
+/**
+ * @file Dequeue.h
+ * @brief Declaration of the Dequeue (Double Ended Queue) class.
+ *
+ * This file contains the definition of the Dequeue class.
+ */
 #include "../LinkedList/LinkedList.h"
 using namespace std;
 class Dequeue {

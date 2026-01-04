@@ -1,3 +1,9 @@
+/**
+ * @file Main.cpp
+ * @brief Entry point for the LinkedList application.
+ *
+ * This file tests the functionality of the LinkedList class.
+ */
 #include "LinkedList.h"
 int main() {
     LinkedList l;

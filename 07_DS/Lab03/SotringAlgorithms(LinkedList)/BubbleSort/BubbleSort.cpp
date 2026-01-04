@@ -1,3 +1,7 @@
+/**
+ * @file BubbleSort.cpp
+ * @brief Implementation of Bubble Sort on a Linked List.
+ */
 #include "BubbleSort.h"
 void BubbleSort::sort(LinkedList& linkedList){
     int length = linkedList.getCount();

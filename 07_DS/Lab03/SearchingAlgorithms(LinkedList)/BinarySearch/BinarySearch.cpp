@@ -1,3 +1,7 @@
+/**
+ * @file BinarySearch.cpp
+ * @brief Implementation of Binary Search on a Linked List.
+ */
 #include "BinarySearch.h"
 int BinarySearch::indexOf(const LinkedList& linkedList, int target) {  
     if(linkedList.isEmpty()) __throw_length_error;

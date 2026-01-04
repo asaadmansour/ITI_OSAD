@@ -1,3 +1,9 @@
+/**
+ * @file LinkedList.cpp
+ * @brief Implementation of the LinkedList class.
+ *
+ * This file implements the methods of the LinkedList class defined in LinkedList.h.
+ */
 #include "LinkedList.h"
 LinkedList::LinkedList() {
     head = tail = nullptr;

@@ -1,3 +1,7 @@
+/**
+ * @file BubbleSort.h
+ * @brief Declaration of Bubble Sort on a Linked List.
+ */
 #ifndef BUBBLESORT_H
 #define BUBBLESORT_H
 

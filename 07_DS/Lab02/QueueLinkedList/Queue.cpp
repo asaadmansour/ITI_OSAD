@@ -1,3 +1,9 @@
+/**
+ * @file Queue.cpp
+ * @brief Implementation of the Queue class.
+ *
+ * This file implements the methods of the Queue class defined in Queue.h.
+ */
 #include "Queue.h"
 void Queue::enqueue(int element) {
     linkedList.addNode(element);

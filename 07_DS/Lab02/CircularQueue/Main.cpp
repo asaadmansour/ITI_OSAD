@@ -1,3 +1,9 @@
+/**
+ * @file Main.cpp
+ * @brief Entry point for the CircularQueue application.
+ *
+ * This file tests the functionality of the CircularQueue class.
+ */
 #include "CircularQueue.h"
 int main() {
   Queue q;

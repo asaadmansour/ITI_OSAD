@@ -1,3 +1,7 @@
+/**
+ * @file InsertionSort.cpp
+ * @brief Implementation of Insertion Sort on a Linked List.
+ */
 #include "InsertionSort.h"
 
 void InsertionSort::sort(LinkedList& linkedList) {

@@ -1,3 +1,9 @@
+/**
+ * @file CircularQueue.cpp
+ * @brief Implementation of the CircularQueue class.
+ *
+ * This file implements the methods of the CircularQueue class.
+ */
 #include "CircularQueue.h"
 void Queue::enqueue(int element) {
   linkedList.addNode(element);

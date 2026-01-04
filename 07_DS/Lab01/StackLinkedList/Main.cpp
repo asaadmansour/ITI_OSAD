@@ -1,3 +1,9 @@
+/**
+ * @file Main.cpp
+ * @brief Entry point for the StackLinkedList application.
+ *
+ * This file tests the functionality of the Stack class.
+ */
 #include "Stack.h"
 int main() {
     Stack s;

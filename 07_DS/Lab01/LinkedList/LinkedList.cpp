@@ -161,3 +161,14 @@ Node* LinkedList::getHead(){
 void LinkedList::setHead(Node* node) {
     head = node;
 }
+void LinkedList::insertAtHead(int val) {
+    Node *newNode = new Node(val);
+    if (head == nullptr) {
+        head = tail = newNode;
+    } else {
+        newNode->next = head;
+        head->prev = newNode;
+        head = newNode;
+    }
+    count++;
+}

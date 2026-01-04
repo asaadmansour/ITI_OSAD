@@ -24,6 +24,7 @@ class LinkedList {
     Node* getNodeByIndex(int index) const;
     void removeAll(int data);
     void removeNode(int val);
+    void insertAtHead(int val);
     ~LinkedList();
 };
 

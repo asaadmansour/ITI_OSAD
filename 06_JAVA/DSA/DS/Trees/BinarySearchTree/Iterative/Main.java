@@ -8,6 +8,10 @@ public class Main {
         b1.insertNode(40);
         b1.insertNode(60);
         b1.insertNode(80);
-        b1.PreOrder();
+        b1.InOrder();
+        b1.deleteNode(20);
+        b1.InOrder();
+        b1.deleteNode(40);
+        b1.InOrder();
     }
 }

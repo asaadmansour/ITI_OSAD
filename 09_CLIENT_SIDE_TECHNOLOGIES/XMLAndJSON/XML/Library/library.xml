@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Library>
+    <Location />
+    <Description><![CDATA[Community library containing teaching materials, XML and JSON examples.]]></Description>
+    <Librarian>Asaad Mansour</Librarian>
+    <Books>
+        <Book ISBN="978-0262033848" id="B1">
+            <Title><![CDATA[Learning XML & JSON]]></Title>
+            <Author><![CDATA[Asaad Mansour]]></Author>
+            <Preface><![CDATA[This preface explains the goals: demonstrate XML structure, attributes, CDATA, and parsing examples. Special characters like <, >, & are shown.]]></Preface>
+            <Part>
+                <Title><![CDATA[Part I: Basics]]></Title>
+                <Chapter>
+                    <Title><![CDATA[Getting Started]]></Title>
+                    <Summary><![CDATA[Introduces elements, attributes, and CDATA.]]></Summary>
+                    <Section>
+                        <Paragraph><![CDATA[XML stands for eXtensible Markup Language. It stores data in a hierarchical form.]]></Paragraph>
+                        <Paragraph><![CDATA[Use attributes for small metadata like ISBN or id.]]></Paragraph>
+                        <Paragraph><![CDATA[Example characters: <tag>, &amp;, and "quotes" — CDATA protects them.]]></Paragraph>
+                    </Section>
+                    <Section>
+                        <Paragraph><![CDATA[Sections group paragraphs.]]></Paragraph>
+                        <Paragraph><![CDATA[Elements can be nested arbitrarily.]]></Paragraph>
+                        <Paragraph><![CDATA[Remember to keep XML well-formed.]]></Paragraph>
+                    </Section>
+                </Chapter>
+                <Chapter>
+                    <Title><![CDATA[XML vs JSON]]></Title>
+                    <Summary><![CDATA[Compares XML and JSON structures and use-cases.]]></Summary>
+                    <Section>
+                        <Paragraph><![CDATA[JSON is lighter for data interchange.]]></Paragraph>
+                        <Paragraph><![CDATA[XML is better for documents with mixed content.]]></Paragraph>
+                        <Paragraph><![CDATA[Both have parsers available in many languages.]]></Paragraph>
+                    </Section>
+                    <Section>
+                        <Paragraph><![CDATA[Converting between them requires mapping elements and attributes.]]></Paragraph>
+                        <Paragraph><![CDATA[CDATA sections are XML-specific.]]></Paragraph>
+                        <Paragraph><![CDATA[Use attributes sparingly for identifiers.]]></Paragraph>
+                    </Section>
+                </Chapter>
+            </Part>
+            <Part>
+                <Title><![CDATA[Part II: Advanced]]></Title>
+                <Chapter>
+                    <Title><![CDATA[Namespaces & Schemas]]></Title>
+                    <Summary><![CDATA[Shows namespaces, DTDs, and XML Schema basics.]]></Summary>
+                    <Section>
+                        <Paragraph><![CDATA[Namespaces avoid name collisions.]]></Paragraph>
+                        <Paragraph><![CDATA[Schemas validate structure.]]></Paragraph>
+                        <Paragraph><![CDATA[DTD is older; XSD is more expressive.]]></Paragraph>
+                    </Section>
+                    <Section>
+                        <Paragraph><![CDATA[Validation helps prevent malformed documents.]]></Paragraph>
+                        <Paragraph><![CDATA[Use tools to validate XML files.]]></Paragraph>
+                        <Paragraph><![CDATA[Keep schema definitions versioned.]]></Paragraph>
+                    </Section>
+                </Chapter>
+                <Chapter>
+                    <Title><![CDATA[Practical Examples]]></Title>
+                    <Summary><![CDATA[Real-world transformations and XPath queries.]]></Summary>
+                    <Section>
+                        <Paragraph><![CDATA[Use XSLT to transform XML to HTML.]]></Paragraph>
+                        <Paragraph><![CDATA[XPath selects nodes efficiently.]]></Paragraph>
+                        <Paragraph><![CDATA[Combine tools for pipelines.]]></Paragraph>
+                    </Section>
+                    <Section>
+                        <Paragraph><![CDATA[Store identifiers in attributes for compactness.]]></Paragraph>
+                        <Paragraph><![CDATA[CDATA sections let you include unescaped markup.]]></Paragraph>
+                        <Paragraph><![CDATA[This completes the sample book content.]]></Paragraph>
+                    </Section>
+                </Chapter>
+            </Part>
+        </Book>
+        <Book  id="B2">
+            <Title></Title>
+            <Author></Author>
+            <Preface></Preface>
+            <Part>
+                <Title></Title>
+                <Chapter>
+                    <Title></Title>
+                    <Summary></Summary>
+                    <Section>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                    </Section>
+                    <Section>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                    </Section>
+                </Chapter>
+                <Chapter>
+                    <Title></Title>
+                    <Summary></Summary>
+                    <Section>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                    </Section>
+                    <Section>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                    </Section>
+                </Chapter>
+            </Part>
+            <Part>
+                <Title></Title>
+                <Chapter>
+                    <Title></Title>
+                    <Summary></Summary>
+                    <Section>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                    </Section>
+                    <Section>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                    </Section>
+                </Chapter>
+                <Chapter>
+                    <Title></Title>
+                    <Summary></Summary>
+                    <Section>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                    </Section>
+                    <Section>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                        <Paragraph></Paragraph>
+                    </Section>
+                </Chapter>
+            </Part>
+        </Book>
+    </Books>
+</Library>

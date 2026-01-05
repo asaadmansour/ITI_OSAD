@@ -1,7 +1,7 @@
 package List.MyCustomList;
 
 
-public interface MyList<E> {
+public interface MyList<E> extends Iterable<E> {
 	
     /**
      * Appends the specified element to the end of this list (optional

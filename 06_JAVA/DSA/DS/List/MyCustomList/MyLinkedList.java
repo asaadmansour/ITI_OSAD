@@ -1,4 +1,7 @@
-package List.MyCustomList;
+// package MyCustomList;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class MyLinkedList<E> implements MyList<E> {
 
@@ -17,7 +20,53 @@ public class MyLinkedList<E> implements MyList<E> {
             this.next = next;
         }
     }
-
+    private class IteratorImpl implements Iterator<E> {
+        private Node<E> nextNode = head;
+        private Node<E> lastReturned = null;
+        public boolean hasNext() {
+            return nextNode != null;
+        }
+        public E next() {
+            if(nextNode == null) throw new NoSuchElementException();
+            lastReturned = nextNode;
+            nextNode = nextNode.next;
+            return lastReturned.item;
+        }
+        public void remove() {
+            if(lastReturned == null) throw new IllegalStateException();
+            if(lastReturned.prev == null) {
+                head = lastReturned.next;
+            } else {
+                lastReturned.prev.next = lastReturned.next;
+            }
+            if(lastReturned.next == null) {
+                tail = lastReturned.prev;
+            } else {
+                lastReturned.next.prev = lastReturned.prev;
+            }
+            lastReturned = null;
+        }
+    }
+    private class ListIteratorImp implements ListIterator {
+        private Node<E> nextNode = head;
+        private Node<E> lastReturned = null;
+        private Node<E> previousNode = null;
+        public boolean hasPrevious(){
+            return previousNode != null;
+        }
+        public Object previous() {
+            if(previousNode == null) throw new NoSuchElementException();
+            lastReturned = previousNode;
+            nextNode = previousNode;
+            previousNode = previousNode.prev;
+            return lastReturned.item;
+        }
+        public void set(E e){
+            if(lastReturned == null) throw new IllegalStateException();
+            lastReturned.item = (E) e ;
+        }
+        public void remove(){}
+    }
     public MyLinkedList() {
         size = 0;
         head = tail = null;
@@ -127,5 +176,9 @@ public class MyLinkedList<E> implements MyList<E> {
     @Override
     public int size() {
         return size;
+    }
+    @Override
+    public Iterator<E> iterator() {
+        return new IteratorImpl();
     }
 }

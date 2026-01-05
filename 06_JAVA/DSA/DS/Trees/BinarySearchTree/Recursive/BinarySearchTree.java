@@ -54,5 +54,31 @@ public class BinarySearchTree {
         PostOrderHelper(root.right);
         System.out.println(root.data);
     }
+    private TreeNode findMin(TreeNode node) {
+        while(node.left!=null)
+            node = node.left;
+        return node;
+    }
+    private TreeNode deleteRecursivly(TreeNode node,int data) {
+        if(node == null) return null;
+        if(data < node.data) {
+            node.left = deleteRecursivly(node.left, data);
+        } else if(data > node.data) {
+            node.right = deleteRecursivly(node.right, data);
+        } else {
+            //case 1
+            if(node.left == null) return node.right;
+            if(node.right == null) return node.left;
+            // case 2++
+            TreeNode successor = findMin(node.right);
+            node.data = successor.data;
+            node.right = deleteRecursivly(node.right, successor.data);
+        }
+        return node;
+    }
+    public void deleteNode(int value) {
+        root = deleteRecursivly(root, value);
+        size--;
+    }
 
 }

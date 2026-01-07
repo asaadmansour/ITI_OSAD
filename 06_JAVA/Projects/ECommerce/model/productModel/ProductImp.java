@@ -20,4 +20,9 @@ public class ProductImp implements Product {
     public String getProductName() {
         return productName;
     }
+    @Override
+	public String toString() {
+		return "Product id=" + id + ", product name=" + productName
+				+ ", category name=" + categoryName + ", price=" + price;
+	}
 }

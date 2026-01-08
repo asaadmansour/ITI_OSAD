@@ -1,10 +1,28 @@
 public interface ListIterator<E> {
-    boolean hasPrevious(); // returns true if this list iterator has more elements when traversing the list in the reverse direction
+    /**
+     * Returns true if this list iterator has more elements when 
+     * traversing the list in the reverse direction.
+     * @return true if there are more elements when traversing backwards
+     */
+    boolean hasPrevious();
 
-    Object previous(); // returns the previous element in the list and moves the cursor position backwards
+    /**
+     * Returns the previous element in the list and moves the cursor 
+     * position backwards.
+     * @return the previous element in the list
+     */
+    E previous();
 
-    void set(E e); // replaces the last element returned by next or previous with the specified element
+    /**
+     * Replaces the last element returned by next or previous with 
+     * the specified element.
+     * @param e the element to set
+     */
+    void set(E e);
 
-    void remove(); // removes from the list the last element that was returned by next or previous
-
+    /**
+     * Removes from the list the last element that was returned by 
+     * next or previous.
+     */
+    void remove();
 }

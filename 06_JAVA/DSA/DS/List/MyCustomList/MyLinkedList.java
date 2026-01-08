@@ -47,25 +47,48 @@ public class MyLinkedList<E> implements MyList<E> {
             lastReturned = null;
         }
     }
-    private class ListIteratorImp implements ListIterator {
+    private class ListIteratorImp implements ListIterator<E> {
         private Node<E> nextNode = head;
         private Node<E> lastReturned = null;
         private Node<E> previousNode = null;
-        public boolean hasPrevious(){
+
+        @Override
+        public boolean hasPrevious() {
             return previousNode != null;
         }
-        public Object previous() {
-            if(previousNode == null) throw new NoSuchElementException();
+
+        @Override
+        public E previous() {
+            if (previousNode == null) throw new NoSuchElementException();
             lastReturned = previousNode;
             nextNode = previousNode;
             previousNode = previousNode.prev;
             return lastReturned.item;
         }
-        public void set(E e){
-            if(lastReturned == null) throw new IllegalStateException();
-            lastReturned.item = (E) e ;
+
+        @Override
+        public void set(E e) {
+            if (lastReturned == null) throw new IllegalStateException();
+            lastReturned.item = e;
         }
-        public void remove(){}
+
+        @Override
+        public void remove() {
+            if (lastReturned == null) throw new IllegalStateException();
+            // Remove logic similar to IteratorImpl
+            if (lastReturned.prev == null) {
+                head = lastReturned.next;
+            } else {
+                lastReturned.prev.next = lastReturned.next;
+            }
+            if (lastReturned.next == null) {
+                tail = lastReturned.prev;
+            } else {
+                lastReturned.next.prev = lastReturned.prev;
+            }
+            size--;
+            lastReturned = null;
+        }
     }
     public MyLinkedList() {
         size = 0;

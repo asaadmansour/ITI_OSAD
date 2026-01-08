@@ -8,6 +8,10 @@ import model.SupportTicket;
 public class HelpDeskFacadeImpl implements HelpDeskFacade {
     Queue<SupportTicket> line = new PriorityQueue<>();
     @Override
+    public void addNewSupportTicket(SupportTicket supportTicket) {
+        line.offer(supportTicket);
+    }
+    @Override
     public SupportTicket getNextSupportTicket() {
        return line.poll();
     }
@@ -15,8 +19,5 @@ public class HelpDeskFacadeImpl implements HelpDeskFacade {
     public int getNumberOfTickets() {
         return line.size();
     }
-    @Override
-    public void addNewSupportTicket(SupportTicket supportTicket) {
-        line.offer(supportTicket);
-    }
+
 }

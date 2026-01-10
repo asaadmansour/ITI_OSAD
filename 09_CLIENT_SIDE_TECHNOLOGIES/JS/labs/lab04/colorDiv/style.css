@@ -1,0 +1,14 @@
+body {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+div {
+  background-color: red;
+  width: 200px;
+  height: 200px;
+}
+p {
+  font-size: 40px;
+  text-align: center;
+}

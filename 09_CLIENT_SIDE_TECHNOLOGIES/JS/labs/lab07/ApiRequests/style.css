@@ -1,0 +1,22 @@
+#names {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+.box {
+    width: 250px;
+    background-color: aquamarine;
+    text-align: center;
+    align-items: center;
+}
+.selected {
+    background-color: orange;
+}
+.boxText {
+    font-size: 20px;
+    font-weight: 500;
+}
+.paragraphs {
+    margin-top: 30px;
+    font-size: 20px;
+}

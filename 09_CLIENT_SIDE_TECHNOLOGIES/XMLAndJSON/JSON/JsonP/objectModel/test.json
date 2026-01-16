@@ -1,0 +1,24 @@
+{
+  "customerId": "CUST-10245",
+  "name": "Ahmed Hassan",
+  "email": "ahmed.hassan@example.com",
+  "isActive": true,
+  "address": {
+    "street": "12 Tahrir Street",
+    "city": "Cairo",
+    "country": "Egypt",
+    "postalCode": "11511"
+  },
+  "orders": [
+    {
+      "orderId": "ORD-9001",
+      "amount": 250.75,
+      "status": "completed"
+    },
+    {
+      "orderId": "ORD-9002",
+      "amount": 99.99,
+      "status": "pending"
+    }
+  ]
+}

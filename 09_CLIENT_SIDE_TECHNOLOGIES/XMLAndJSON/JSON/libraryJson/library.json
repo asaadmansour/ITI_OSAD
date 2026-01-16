@@ -1,0 +1,31 @@
+{
+  "library": {
+    "location": "Smart Village",
+    "description": "Book Library",
+    "librarian": "Asaad",
+    "books": [
+      {
+        "title": "PHP Programming Guide",
+        "ISBN": "978-1-234567-89-0",
+        "author": "Ahmed Ali",
+        "preface": "This book is designed to teach PHP from basics to advanced concepts. Written for developers who want to master server-side programming.",
+        "parts": [
+          {
+            "title": "Part 1: Introduction to PHP",
+            "chapters": [
+              {
+                "title": "Chapter 1: Getting Started",
+                "summary": "This chapter introduces PHP basics, installation, and your first program.",
+                "sections": [
+                  {
+                    "content": "PHP is a server-side scripting language designed for web development. It was created by Rasmus Lerdorf in 1994."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

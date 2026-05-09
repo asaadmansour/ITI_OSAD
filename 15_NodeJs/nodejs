@@ -1,0 +1,87 @@
+what is nodejs?
+Node.js is a runtime environment that allows JavaScript to run outside the browser and provides built-in APIs to build server-side applications.
+
+1. "How does Node.js handle asynchronous operations?"
+This is the #1 question — your entire explanation is the answer to this.
+2. "What is the event loop?"
+You can explain the 6 phases, the sequential checking, and the loop behavior.
+3. "What is the difference between microtasks and macrotasks?"
+You know the priority order — nextTick → Promises → macrotask phases.
+4. "What is process.nextTick and how is it different from Promises?"
+You know nextTick has higher priority than the Promise queue.
+5. "Is Node.js single-threaded?"
+You can give a nuanced answer — V8 and the event loop are single-threaded, but libuv uses a thread pool for certain async operations.
+6. "What is libuv?"
+You can explain it's a C library that handles async I/O, manages the thread pool, and feeds callbacks into the event loop phases.
+7. "What happens when you call setTimeout with 0ms delay?"
+You know it goes to the Timers phase, not immediately — so it runs after the current call stack and microtasks are clear.
+8. "What is the difference between setTimeout and setImmediate?"
+You know setTimeout goes to phase 1 (Timers) and setImmediate goes to phase 5 (Check).
+
+
+imagine we have a piece of code which have sync next tic promises timouts/interval os/network calls nodejs handles this as follows
+the code start running in the call stack squentially and the behavior of nodejs changes based on the operation so sync code will get executed immedietaly 
+while next tick and promises goes to the micro queue after they are resolved (next tick get resolved directly after sync code so it's call back go to the queue directly) which got the highest priority while promises wait in memory until resolved then the call back goes into the promises queue then v8 starts also executing them, and for the other async code they wait until they finish in libuv (which is c library handling waiting/blocking code using threads) and when they finish they are sent to the macroqueue each goes to their relevent phase of 6 phases and then  the event loop starts going through each phases asking if there any callbacks ready if yes it pushes it into the call stack to get executed!
+
+
+what is libuv and what does it provides? 
+libuv-> c library provides low level functions , it abstracts OS-level async operations across all platforms (Windows, Linux, Mac) so Node.js doesn't have to worry about platform differences. it provides event loop, thread pool / management, fs
+thread pool -> creating a thread for each task is expensive so we create threads and after task finish the thread goes back to the pool instead of dying edfault 4 in node can be increased
+
+Node.js depends on V8 as the main engine
+V8 delegates async to libuv 
+Call stack stores primitives and references, heap stores objects 
+GC collects objects without references and objects that survived multiple GC cycles get promoted here, GC runs less frequently but is heavier
+v8 got two compilers so frequent code get compiled to machine code directly if it's the same exactly even with the types so try to be consistent with it
+
+events library is how nodejs achieves event driven arhcitecture so we have an emitter that emits event and listeners uses on to listen to the events and react to it emission is always sync in the order they were registered but reaction can be sync or async , error on lister to check if it didnt work
+nodejs limits max 10 listeners per event bec it can make memory leak espically that we dont remove them so they stay forever
+
+stream: a continouts flow of data chunks to transfer file instead of doing it at once which will flood the memory
+4 types
+readable -> reading data only (eg. reading http request)
+writable -> writing data (eg. writing http response)
+duplex -> socket sending and reciving at the same time
+transform -> compressing, encrypting data (duplex)
+
+flowing mode data flows automatically as it arrives
+pause mode data sits in buffer, you manually pull it
+
+buffering-> a temporary memory between source and desitination that data chunks stays in until they being proccessed
+
+back pressure a problem happns when the reading is faster than writing so the buffer get full and memomry get loaded 
+we have to handle this manually or use pipe which handles this automatically
+
+arraybuffer reserves raw memory
+typedarray reserves certain type in memory int32 for example
+buffer built with typed array but with nodejs api's so we can deal easier with it
+Node.js pre-allocates a pool of 8KB memory upfront. When you create small buffers they get a slice of that pool instead of requesting fresh memory from the OS every time
+String → Buffer (encoding)   →  send over network / write to file
+Buffer → String (decoding)   →  read from network / read from file
+
+threading
+
+noedjs is single threaded but the os is not so we can make multiple nodejs processes or threads each with their own event loop v8 etc
+
+child process have their own memory v8 event loop libuv it is as u opened a new instance of  vs code with a node app can be created using 
+spwan -> streams the output back chuunk by chunk
+exec -> returns the output at once in a buffer format
+fork -> as exec but with built in ipc — basically a pipe between parent and child where they can send messages
+
+worker threads the same as child but points to the same memory as parent why? bec ipc and communction serlization etc is expensive so pointing directly to the memomry is cheaper/faster
+
+so if we running differnt program or command we dont need shared memory it's better to use child processes if we using js heavy loaded task it's better to use worker thread
+
+commonjs -> sync and can be declared anywhere in the file it loads also the whole module when required is written
+esm -> async, static must be decalred at the top only, it loads only what is needed do treeshaking to optimze and dont use unused imports
+The module is cached after first load — so the same instance is returned every time (singelton)	
+ Promises
+→ pending = waiting in memory
+→ resolved = enters microtask queue
+→ each .then() = separate microtask
+→ checked between every macro phase
+ first in a call back first argument is err object so the error + return is there if any errors if not it is null
+ file sync/async
+ sync we block the code until read/write form the file which is readsync for exmaple
+read only is async by default so it does not block the code and call back is executed after it finshes
+File descriptors gives each operation a number to be able to deal with it idk the others 

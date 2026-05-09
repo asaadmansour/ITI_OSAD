@@ -1,0 +1,11 @@
+redux:
+
+store -> vault that holds the state
+actions -> what i wanna do with the state
+dispatch -> delivery guy that takes the action and send it to reducers
+reducers -> what process the changes in the state
+selecting -> checking the state after changes
+
+component calls dispatch with the action it needs -> dispatch send it
+to the redcuer -> redcuer do the changes in the store -> component select
+and if changes in state it rerender

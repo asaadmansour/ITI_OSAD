@@ -1,0 +1,29 @@
+info:
+  name: patchUser
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: http://127.0.0.1:8000/students/details/2
+  body:
+    type: json
+    data: |-
+      {
+        "gpa": 3.4
+      }
+  auth:
+    type: bearer
+    token: |
+      5a8445d7e9fe86ba0d9146dd740e890e3c8fa6f6
+      5a8445d7e9fe86ba0d9146dd740e890e3c8fa6f6
+      5a8445d7e9fe86ba0d9146dd740e890e3c8fa6f6
+      5a8445d7e9fe86ba0d9146dd740e890e3c8fa6f6
+      5a8445d7e9fe86ba0d9146dd740e890e3c8fa6f6
+      5a8445d7e9fe86ba0d9146dd740e890e3c8fa6f6
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

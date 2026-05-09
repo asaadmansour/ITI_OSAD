@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'css/grades.css' %}">
+{% endblock %}
+
+{% block grades %}
+<main class="register-wrapper">
+    <form class="register-form" method="POST">
+        {% csrf_token %}
+        <h2>Grade Registration</h2>
+
+        {% for field in form %}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+                <p style="color:#e74c3c; margin-top:-1rem; margin-bottom:0.5rem; font-size:0.875rem;">
+                    {{ field.errors|join:", " }}
+                </p>
+            {% endif %}
+        {% endfor %}
+
+        <button type="submit">Save Grade</button>
+    </form>
+</main>
+{% endblock grades %}

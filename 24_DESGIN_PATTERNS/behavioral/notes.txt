@@ -1,0 +1,2 @@
+Behavioral patterns focus on communication between objects - how objects interact and distribute responsibilities.
+Observer -> is a pattern where some objects are subscribed to object state so when that one object state change they get notified

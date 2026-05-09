@@ -1,0 +1,25 @@
+A Library Management System (LMS) is a software solution used to manage books
+, users, borrowing, and returning activities efficiently. 
+The system ensures that books are available for borrowing,
+ users can request books, and the library keeps track of stock and reservations.
+
+
+Requirements:
+1. Create a only one LibraryService to manage books.
+2. Seperate the logic of creation different types of book outside the entrie code.
+3. We want to create A PremiumBook can allow extra 10 days for borrowing without modify the book entity.
+4. Make premium access for EBooks.
+5. Book borrowing requests go through Librarian Manager.
+6. Simplify the library operations handling Book Borrowing Requests.
+7. We can use external book data that is with format json and want to convert it to our book entity.
+{
+"isBorrowable": true,
+"bookTitle": "Design Patterns", "authorName": "Erich Gamma", "year": 1994
+}
+8. We want to notify users when books are available.
+BONUS:
+9. Borrowing requests must be approved based on the number of days requested
+Librarian--->7 days
+Manager--->14 days
+Director---->15+ days
+Apply possible design patterns to solve each requirement.

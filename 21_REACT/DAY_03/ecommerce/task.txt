@@ -1,0 +1,12 @@
+1: Add navbar with links for different pages as shown
+in task (products list, Product details, cart , not found )
+2: Products list screen will include products list, using
+this API https://dummyjson.com/products
+3: When selecting a product, it should redirect to the
+product details screen and API to get data:
+https://dummyjson.com/products/:id
+4: [Bonus] Handle pagination for the products list
+using skip and limit to show 10 items per page.
+Docs link for API:
+https://dummyjson.com/docs/products#products-
+limit_skip

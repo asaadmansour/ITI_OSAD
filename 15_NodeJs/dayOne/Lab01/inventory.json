@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "itemName": "absa",
+    "quantity": null,
+    "category": "general",
+    "isDeleted": true
+  },
+  {
+    "id": 2,
+    "itemName": "absa",
+    "quantity": 1,
+    "category": "general",
+    "isDeleted": false
+  },
+  {
+    "id": 3,
+    "itemName": "",
+    "quantity": 1,
+    "category": "general",
+    "isDeleted": false
+  },
+  {
+    "id": 4,
+    "quantity": 1,
+    "category": "general",
+    "isDeleted": false
+  }
+]

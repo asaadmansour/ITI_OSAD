@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{% block register %}
+    <main class="register-wrapper">
+        <form class="register-form" method="POST">
+            {% csrf_token %}
+            <h2>Subject Registration</h2>
+
+            <label for="name">Subject Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="max_grade">Max Grade</label>
+            <input type="number" id="max_grade" name="max_grade" max="100" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+{% endblock register %}

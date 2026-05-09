@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "profilePicture": "/images/profiles/ahmed.png",
+    "username": "ahmed_hassan",
+    "email": "ahmed.hassan@gmail.com",
+    "phoneNumber": "+20 100 234 5678",
+    "birthdate": "1995-03-15",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "profilePicture": "/images/profiles/fatima.png",
+    "username": "fatima_mohamed",
+    "email": "fatima.mohamed@outlook.com",
+    "phoneNumber": "+20 111 876 5432",
+    "birthdate": "1992-07-22",
+    "role": "moderator"
+  },
+  {
+    "id": 3,
+    "profilePicture": "/images/profiles/mohamed.png",
+    "username": "mohamed_ali",
+    "email": "m.ali@yahoo.com",
+    "phoneNumber": "+20 122 345 6789",
+    "birthdate": "1985-11-08",
+    "role": "moderator"
+  },
+  {
+    "id": 4,
+    "profilePicture": "/images/profiles/nour.png",
+    "username": "nour_elsayed",
+    "email": "nour.elsayed@gmail.com",
+    "phoneNumber": "+20 106 987 1234",
+    "birthdate": "1998-05-30",
+    "role": "user"
+  }
+]

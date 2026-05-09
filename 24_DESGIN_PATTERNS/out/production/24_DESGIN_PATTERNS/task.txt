@@ -1,0 +1,4 @@
+You are developing a web application that supports user authentication through various methods,
+such as username/password, social media logins, and two-factor authentication.
+Initially, we need to have a centralized place for creating those authentications,
+considering that social media logins might have in the future various kinds of social media and two-factor authentication as well.

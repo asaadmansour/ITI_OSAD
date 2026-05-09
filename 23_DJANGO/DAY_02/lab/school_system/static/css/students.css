@@ -1,0 +1,79 @@
+/* Students Page - Scoped Styles */
+
+.students-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.students-table {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.students-table th,
+.students-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.students-table th {
+    background: #1a1a1a;
+    color: white;
+    font-weight: 600;
+}
+
+.students-table tr:hover {
+    background: #f5f5f5;
+}
+
+.students-table img {
+    max-width: 80px;
+    border-radius: 6px;
+}
+
+.register-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #1a1a1a;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.register-button:hover {
+    background: #333;
+}
+
+.delete-btn {
+    padding: 0.25rem 0.5rem;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background 0.2s;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+@media (max-width: 768px) {
+    .students-table th,
+    .students-table td {
+        padding: 0.5rem;
+    }
+}

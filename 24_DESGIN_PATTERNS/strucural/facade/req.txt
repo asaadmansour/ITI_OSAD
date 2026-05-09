@@ -1,0 +1,5 @@
+You're developing an e-commerce platform where customers can place orders
+for various products. The order processing system involves multiple
+subsystems such as inventory management, payment processing, and shipping
+logistics. Managing interactions with these subsystems directly from the
+client code can become complex and error-prone.

@@ -1,0 +1,3 @@
+Let's consider a scenario where we have a media streaming service that provides access to videos.
+The problem we'll address is controlling access to sensitive or restricted videos based on user permissions.
+

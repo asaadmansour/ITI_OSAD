@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "itemName": "Laptop",
+    "quantity": 10,
+    "category": "general",
+    "isDeleted": true
+  },
+  {
+    "id": 2,
+    "itemName": "Mobile",
+    "quantity": 1,
+    "category": "general",
+    "isDeleted": false
+  },
+  {
+    "id": 3,
+    "itemName": "Case",
+    "quantity": 1,
+    "category": "general",
+    "isDeleted": false
+  },
+  {
+    "id": 4,
+    "itemName": "Bottle",
+    "quantity": 1,
+    "category": "general",
+    "isDeleted": false
+  }
+]

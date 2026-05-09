@@ -1,0 +1,8 @@
+<div class="flex flex-col justify-center items-center p-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-7xl">
+        @for (product of products; track product.id) {
+            <app-productcomponent [product]="product"></app-productcomponent>
+        }
+    </div>
+</div>
+

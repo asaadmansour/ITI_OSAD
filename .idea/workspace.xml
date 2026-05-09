@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9d603a78-774f-4985-b759-f4e2ab046d04" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/06_JAVA/MultiThreading/One/One.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/06_JAVA/Projects/ECommerce/model/orderModel/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/06_JAVA/Projects/ECommerce/model/orderModel/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/06_JAVA/Projects/ECommerce/model/orderModel/OrderImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/06_JAVA/Projects/ECommerce/model/orderModel/OrderImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/06_JAVA/Projects/ECommerce/model/productModel/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/06_JAVA/Projects/ECommerce/model/productModel/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/06_JAVA/Projects/ECommerce/model/productModel/ProductImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/06_JAVA/Projects/ECommerce/model/productModel/ProductImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/06_JAVA/Projects/ECommerce/model/userModel/UserImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/06_JAVA/Projects/ECommerce/model/userModel/UserImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/09_CLIENT_SIDE_TECHNOLOGIES/JS/notes/JS.md" beforeDir="false" afterPath="$PROJECT_DIR$/09_CLIENT_SIDE_TECHNOLOGIES/JS/notes/JS.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="38wY3eg5mflmDchGhKcqNjw5ZFg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/asaad/ITI-OSAD/06_JAVA/MultiThreading/One",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ITI-OSAD" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ITI-OSAD" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9d603a78-774f-4985-b759-f4e2ab046d04" name="Changes" comment="" />
+      <created>1769711904442</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1769711904442</updated>
+      <workItem from="1769711916095" duration="33000" />
+      <workItem from="1769779487707" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/09_CLIENT_SIDE_TECHNOLOGIES/TypeScript/02-Basics/myObjects.js" />
+        <option value="$PROJECT_DIR$/09_CLIENT_SIDE_TECHNOLOGIES/TypeScript/01-Intro/intro.js" />
+      </list>
+    </option>
+  </component>
+</project>

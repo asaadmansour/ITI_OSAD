@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/feedback.css' %}">
+{% endblock %}
+
+{% block feedback %}
+    <main class="feedback-wrapper">
+        <form class="feedback-form" method="POST">
+            {% csrf_token %}
+            <h2>Contact Us</h2>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </main>
+{% endblock feedback %}

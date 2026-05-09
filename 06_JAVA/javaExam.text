@@ -1,0 +1,142 @@
+Java Interview Topics - Study Order
+1. Java Basics & Fundamentals
+
+Variable naming rules ($, _ can start variable names)
+Pass by value vs pass by reference (Java is pass-by-value, but value can be a reference)
+Variable shadowing with code examples
+Number systems (octal like 053 - how to evaluate)
+Static vs local variables
+[ADDED BY ME] Primitive types vs reference types
+[ADDED BY ME] Wrapper classes and autoboxing/unboxing
+
+2. Object-Oriented Programming (OOP)
+
+Inheritance (extends)
+Multiple inheritance in Java (why Diamond Problem prevents it - ambiguity of behavior's choice when superclasses have methods with same signatures)
+Everything inherits from Object class
+Interfaces (can extend other interfaces)
+[ADDED BY ME] Polymorphism (method overloading vs overriding)
+[ADDED BY ME] Abstraction (abstract classes vs interfaces)
+[ADDED BY ME] Encapsulation
+[ADDED BY ME] super and this keywords
+
+3. Strings (Important & Tricky)
+
+Strings are immutable
+Why immutability creates new instances with each operation
+String vs StringBuffer vs StringBuilder
+
+StringBuffer: mutable, synchronized
+StringBuilder: mutable, not synchronized
+
+
+[ADDED BY ME] String pool and intern()
+[ADDED BY ME] String comparison: == vs .equals()
+
+4. Arrays
+
+Jagged arrays (how they're constructed and accessed)
+[ADDED BY ME] Array vs ArrayList
+[ADDED BY ME] Multidimensional arrays
+
+5. Exception Handling (Tricky - Study Carefully)
+5.1 Exception Hierarchy
+
+Throwable and how it differs from Exception
+Error vs Exception
+All exceptions are either checked or unchecked (but Error exists separately)
+Exception subclass hierarchy
+
+5.2 Checked vs Unchecked Exceptions
+
+Checked exceptions: All subclasses from Exception class (except RuntimeException and its subclasses)
+Unchecked exceptions (Runtime exceptions): Can be handled but compiler doesn't force try-catch
+Difference between unchecked exception and runtime error
+Why checked exceptions need throws in method declaration
+Unchecked exceptions don't need throws declaration
+
+5.3 Try-Catch-Finally Blocks
+
+Basic try-catch structure
+Multiple try blocks allowed
+finally block always executes (even if return in try)
+If try has return and finally has return, finally's return will work
+Any lines between try and catch try{} int x; catch{} will cause compilation error
+[ADDED BY ME] Try-with-resources
+
+5.4 Exception Catching Rules (Tricky!)
+
+Exception is only caught once
+Duplicate exception catching causes compile errors
+Specific exception subclass must precede base exception (otherwise unreachable code error)
+General exceptions before specific causes "unreachable code" error
+Errors do NOT get caught by catch blocks
+
+5.5 Throwing Exceptions
+
+Need to import java.util.Exception (or relevant exception classes)
+[ADDED BY ME] throw vs throws keywords
+[ADDED BY ME] Creating custom exceptions
+
+6. Collections Framework
+6.1 Collection vs Collections
+
+Collection (interface) vs Collections (utility class)
+
+6.2 Legacy vs Modern Collections
+
+Hashtable, Vector: legacy, synchronized
+Modern concurrent collections replace them
+[ADDED BY ME] HashMap vs Hashtable
+[ADDED BY ME] ArrayList vs Vector
+[ADDED BY ME] LinkedList, HashSet, TreeSet, PriorityQueue
+
+6.3 [ADDED BY ME] Key Interfaces
+
+List, Set, Queue, Map
+Comparable vs Comparator
+
+7. SQL/Database Topics (If applicable to Java interview)
+
+Joins (INNER, LEFT, RIGHT, FULL)
+Aggregate functions (COUNT, SUM, AVG, MAX, MIN)
+GROUP BY clause (must use with aggregate functions)
+MERGE operation
+[ADDED BY ME] HAVING clause
+[ADDED BY ME] Subqueries and indexes
+
+8. [ADDED BY ME] Multithreading & Concurrency (Common in interviews)
+
+Thread creation (extending Thread vs implementing Runnable)
+Synchronization
+volatile keyword
+Deadlock, race conditions
+Executor framework
+
+9. [ADDED BY ME] Memory Management
+
+Stack vs Heap
+Garbage collection
+Memory leaks in Java
+
+10. [ADDED BY ME] Additional Tricky Interview Topics
+
+equals() and hashCode() contract
+Immutable objects and how to create them
+Shallow copy vs deep copy
+Serialization
+Generics and type erasure
+static blocks and initialization order
+Anonymous inner classes and lambda expressions
+Method references
+
+
+🔴 Most Tricky Parts That Show Up in Interviews:
+
+Exception handling hierarchy and catching order (many candidates fail here)
+Pass-by-value with reference reassignment (very tricky concept)
+String immutability and memory implications
+equals() vs == for String comparison
+Finally block with return statements
+Multiple inheritance diamond problem
+Checked vs unchecked exceptions (when to use which)

@@ -1,0 +1,22 @@
+Structural Patterns help in deciding how components are gonna be composed together to form bigger structures with healthy, clear relationships.
+1. Adapter Pattern → Used when we wanna make two or more incompatible interfaces or classes compatible with each other.
+
+the client accepts the new type (interface) and then the adapter IMPLEMENTS the interface and returns the converted data 
+ex
+Client (Dashboard)
+    ↓
+    accepts → [Target Interface: JSONReportProvider]
+    ↑
+    |
+Adapter (ReportAdapter)
+    - implements → JSONReportProvider (target interface)
+    - wraps → ReportService (adaptee/incompatible class)
+    - converts CSV → JSON internally
+    
+2. facade pattern -> used when we wanna gather multiple steps in one class to reduce complexity of calling each of them each time
+
+3.proxy -> a layer we wrap our service with to do some functionalities before or after using our service and the only way to deal with the service is using the proxy and interface that the service is gonna implement and the proxy also will implement the interface and have the setvice as compostion
+so used with lazy initialization , cahcing, logging
+
+4. decorator used when we have class and that class has varites so instead of creating a class for every combination, you wrap the base class with decorators!
+so it's more like each decorator ask for previous deocrator and add on it

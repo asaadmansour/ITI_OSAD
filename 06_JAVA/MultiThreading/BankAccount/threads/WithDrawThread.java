@@ -1,0 +1,20 @@
+package threads;
+
+import models.BankAccount;
+
+public class WithDrawThread extends Thread{
+    private BankAccount bankAccount;
+    private double amount;
+    private int iterations;
+    WithDrawThread(BankAccount bankAccount,double amount,int iterations) {
+        this.bankAccount = bankAccount;
+        this.amount = amount;
+        this.iterations = iterations;
+    }
+    @Override
+    public void run() {
+        for(int i = 0; i < iterations; i++) {
+            bankAccount.withdraw(amount);
+        }
+    }
+}

@@ -1,0 +1,863 @@
+GC works on removing based on the type of the reference so if it's a weak reference that means it will be removed directly if it's not userd directly anywhere
+strong reference
+
+type casting -> is converting from type to type can be done with primitives and objectss
+automatic type casting -> happens when we convert from smaller to larger (safe)
+manual type casting -> when converting from larger to small ex double to int number will be trimmed and if large it can overflow which will result in inconsistent results
+reference typecasting is where upcasting and downcasting lives
+upcasting using up (parent) reference with child object it's safe bec each child is a parent so the parent will have the same method to use with child that we sure they have
+downcasting using child reference with parent object which is unsafe bec the child have methods the parent does not have so if we did so we need to use instance of to make sure this is asubclass instance and it got the method and for the compiler also to not complain and avoid ClassCastException
+
+
+Java collection framework
+
+		Iterable                                        Map
+		   |						 |
+		Collection				    Sorted Map
+	|	    |              | 				 |
+      List          Queue         Set                          Tree Map
+      
+Collection: is a container that have the implementations of the abstract data strucutres and provide us with the basic functionilty for them like add,delete and update
+List: ArrayList,Vector.LinkedList
+Queue: PriorityQueue,LinkedList
+Set: HashSet,TreeSet,LinkedHashSet
+EnumSet: is built on set it holds enums
+
+priorityqueue is built on top of queue and it takes arguments to order based on them
+
+Deque extends Queue and is implemeted by Array(ArrayDeque,LinkedList)
+Map: Anothter interface and it does not implement Iterbale neither collection but we can iterate there by using the views that return iterables like entryset and set
+HashTable,HashMap,LinkedHashMap
+Sorted:TreeMap
+
+stack is deprecated bec it depened on vector which is synchronizhed and adds overhead so it is recommended to use deque
+
+Collections: is a utility class that contains algorithms
+
+Enumeration is an old interface for iteration in java.util (vector,hashtable) (no remove)
+Iterable is the new interface for iteration (all collections) (remove)
+
+Iterable has only one method which is Iterator(interface that is implemented in each class) that iterator got the methods to traverse like hasnext next
+List have both iterator and listiterator which is bidirectional
+A fail-fast vs Fail-safe: fail fast when two threads are working and detects changes it fail and throw error ConcurrentModificationException while fail safe works on a copy from the array so it does not fail bec the changes are never on the original
+
+If two objects are equal (equals == true), they MUST have the same hashCode.
+Same hashCode does NOT guarantee equality and uniqueness but if they are equal they most have the same hashcode (collision allowed)
+so we have to override them if we implementing our own entites
+Entry is a nested interface inside Map and this is how map stores data as key-value pairs
+
+comparable is internal ordering for the class
+comaprtor for external ordering
+
+Exceptions
+
+Exception Handling in Java is a mechanism used to handle both compile-time (checked) and runtime (unchecked) exceptions, allowing a program to continue execution smoothly even in the presence of errors.
+- Basic try-catch Example
+The try block contains code that might throw an exception,
+The catch block handles the exception if it occurs.
+-Finally Block it executes after try catch but it may not execute if system.exit() or system crash or infite loop in try
+we can do try finally - try catch - try catch finally we must not have anything between them like no try {} int x = 1 catch that would make compile error
+if we have return in try and return in finally the finally's return will work
+
+throw vs throws
+throw is used to throw the actual error
+throws is to decalare that this class throws this type of error and we must handle it
+
+Java exception hirerachy
+
+		      Object
+		        |
+	            Throwable
+	    |              	       |
+	  Error        	            Exception
+	    |                   |              |
+	 Unchecked            Runtime    Compile time
+	 			|		|
+	 		     unchecked        checked
+checked means it is checked by the compile that it is wrapped in try catch if not it will compain 
+unchecked means that the compile does not check it but we must try catch it if we wanna the program keep execution
+we can also do nested try catch and also one try multiple catches or in modern java we can pipe catches where the specfic exception should be before the general or the compiler will complain with unreachable code
+
+Exception propagation is the process where, after an exception is thrown, the JVM creates an exception object and starts searching for a matching catch block beginning from the point of exception and moving up the call stack. If no handler is found, the default handler terminates the program and prints the stack trace.
+
+final -> attribute : constant cannot be reassigened
+      -> method: cannot be overriden
+      -> class cannot be extended
+	→ cannot point to another object (but object can change)
+finally-> works with try to make always execute
+finialize-> called by gc before removing object from memory to clean up (depercated use try with resources)
+
+overriding in exceptions
+
+if parent is throwing a checked the child can throw the same / throw a child / dont throw at all
+if parent is throwing non checked child can do wtv
+
+Functional Programming
+
+functional interface it means interface that has only one method
+
+lambda expression simplify the way of implementing the functional interface so instead of making a class to implement that method we just implement it directly 
+by writing like this MyFunc f = () -> someobject.run;
+method referencing is a combact way of writing lambda so here it would be Myfunc = someobjet::run
+reference can be to static, concrete or constructor
+
+streams-> it's an easy way of processing  the data through many pipes directly (squential or paralled) to get a result
+Source → Intermediate operations → Terminal operation
+Streams rely heavily on functional programming, because stream operations take functional interfaces as parameters.
+
+source -> stream
+intermediary operations -> filter,map,sorted,distinct, it uses fn interfaces
+Predicate<T> → for filter
+Function<T, R> → for map
+Consumer<T> → for forEach
+Supplier<T> → sometimes in creation
+BinaryOperator<T> → for reduce
+terminal operations: collect,forEach,reduce,count
+parallel stream for parallel processing
+
+io
+
+byte stream -> for raw binary data (images,audios,etc)
+FileInputStream,FileOutputStream,BufferedInputStream,BufferedOutputStream
+character stream -> text workload
+FileReader,FileWriter,BufferedReader,BufferedWriter
+
+filereader each time we read from the source directly which maybe needs os calls/networks calls which is expensive and slow
+but for buffer we read a good amount and store in into the ram so we wrap around the source buffer do the calls and stream just read from the buffer which is better in most of the cases
+
+Java NIO (New I/O) is an alternative to traditional IO that uses buffers and channels instead of streams. It supports non-blocking operations
+channel Similar to stream but bidirectional
+common impls: Buffer,   Channel
+
+
+Multi-Threading
+Process: running instance of a program , threads share the process memory (stack-heap)
+Thread: the smallest unit inside a process / unit of code in execuction, each thread have their own stack
+
+how to create a thread?
+extend thread and override run
+implement runnable (returns void) over ride run and pass that runnable to a thread
+Callable → call() returns a value (Future<T>), can throw checked exceptions,You don't pass Callable to a Thread directly — you use an ExecutorService
+runnable and callable are fn interfaces so we can replace them with lambda or method refernce directly
+Thread Attributes
+name,id,state(new,running,blocked/waiting,terminated),priority(min=1,norm=5,max=10) it's just a hint does not guarantee ath,daemon killed when the main program finishes
+Thread methods
+run() -> run on the same thread
+start() -> run on another thread calls run() inside
+wait() -> sleep until wake up by noitify and release the lock
+sleep() -> pauses while holding the lock
+notify() -> a shared resource/condition changed, wake up a thread and re-check notiify a thread that we finshed
+notifyall() -> a shared resource/condition changed, wake up all waiting threads and re-check notiify a thread that we finshed
+join() -> make a thread wait until another one finish to continue
+interrupt() -> signal to stop a thread(does not stop it )
+yield() -> hint for the cpu to take another thread(not guaranteed also)
+Thread.currentThread() -> static gives info about the current thread
+
+-  volatile only achieve visibility (not from cache) not atomicity
+ways to synchronize in java
+
+- use synchrohinze keyword: uses monitor lock where each thread lock when it goes in and unlock after automaticlly 
+synchronize with static lock the class
+- reenetrant lock is a mointor lock like synchronizher but with the ability to relock the resource multiple times without deadlocking ourselves,fair mode(fifo) manual lock,unlock
+A Condition is a thread coordination tool tied to a ReentrantLock that lets threads (await,singal) for a specific situation to happen, and lets other threads wake them up when it does.
+difference between singal(),notify() is that signal wake up only the thread tied to the condition while notify nofies any thread waiting
+-Atomic classes (cpu level)
+-ReadWriteLock where we read alot write few so we can make a read lock which allow multiple threads to read and write lock which allow one only to write and no reading by that time
+- Semaphore allows certain amount of threads at a time (acquire - release)	
+-CountDownLatch Makes threads wait until a count reaches zero , One time use — can't be reset like micro services starting and main waiting when each one starrt it call count down, await blocks main
+-CyclicBarrier Makes a group of threads wait for each other at a meeting point if chunks of data processing and we must meet and merge before so we do barrier await
+-Exchanger two threads exchange data at a certain point
+future task compine both callable and future
+threadlocal is variable per thread local to it
+isInterrupted() — checks flag, does NOT clear it
+interrupted() — checks flag AND clears it
+
+thread pool -> instead of making a thread for each task which is expensive we make a pool with ready threads and when we need it we jsut take from the pool
+Executor  (interface)
+    └── ExecutorService  (interface)
+            ├── AbstractExecutorService  (abstract class)
+            │       └── ThreadPoolExecutor  (the real engine behind everything)
+            │               └── ScheduledThreadPoolExecutor
+            └── ScheduledExecutorService  (interface)
+                        └── ScheduledThreadPoolExecutor
+Factory methods of all executors call ThreadPoolExecutor internally with specirfic values
+newFixedThreadPool(n)
+newCachedThreadPool()
+newSingleThreadExecutor()
+newScheduledThreadPool(n)
+newSingleThreadScheduledExecutor()
+newVirtualThreadPerTaskExecutor()
+
+virtual threads -> it takes a real pool of thread but it behave different so instead of the task waiting on the thread when a block happens here the info of the thread get saved in the memory as tcb and the thread pick up on other task and then when the other blockign task finish we continue so we can hanlde alot now
+newVirtualThreadPerTaskExecutor()
+ execute no feedback use it when we dont need respone
+ submit return respone as a future
+ future.get block , is done dont
+ 
+ ## future , future task,completablefuture
+ Future has big problems:
+
+get() blocks — you can't do anything while waiting
+You can't chain — what if after fetching DB you want to process then save?
+You can't combine multiple futures easily
+Exception handling is ugly
+runAsync() — no return value
+supplyAsync() — with return value
+we can chain!
+thenApply() — transform the result
+javaCompletableFuture<String> future = CompletableFuture
+    .supplyAsync(() -> fetchUserId())        // returns Integer
+    .thenApply(id -> fetchUser(id))          // takes Integer, returns User
+    .thenApply(user -> user.getName());      // takes User, returns String
+
+String name = future.get();
+then accept,then run, async versions have the same
+Create:
+  runAsync()          → no return value
+  supplyAsync()       → with return value
+
+Chain:
+  thenApply()         → transform result (like map)
+  thenAccept()        → consume result, no return
+  thenRun()           → run after, ignore result
+  thenCompose()       → chain futures (like flatMap)
+  thenCombine()       → combine two parallel futures
+
+Wait for multiple:
+  allOf()             → wait for ALL
+  anyOf()             → use FIRST to finish
+
+Handle errors:
+  exceptionally()     → catch and provide fallback
+  handle()            → handle both success and failure
+  whenComplete()      → observe only, can't change result
+  Fork → split the problem into smaller subproblems
+Join → wait for subproblems to finish and merge results
+ForkJoinPool pool = new ForkJoinPool(4);
+ForkJoinPool — each thread has its own deque
+Thread 1 deque: [T1, T2, T3]  ← works from front
+Thread 2 deque: [T4, T5]      ← works from front
+Thread 3 deque: []             ← empty! steals from back of Thread 1
+Thread 4 deque: [T6]          ← works from front
+
+Each thread has its own deque of tasks
+Thread works from the front of its own deque
+Idle thread steals from the back of another thread's deque
+Stealing from opposite ends minimizes contention — they rarely collide
+ForkJoinPool.commonPool()
+Java provides a shared global pool you can use without creating your own:
+java// your own pool
+ForkJoinPool pool = new ForkJoinPool();
+Long result = pool.invoke(task);
+
+// shared common pool — simpler
+Long result = ForkJoinPool.commonPool().invoke(task);
+CompletableFuture.supplyAsync() actually uses commonPool() by default
+I/O bound tasks (most backend work)
+→ Virtual Threads via newVirtualThreadPerTaskExecutor()
+→ Spring Boot 3.2+ enables this automatically
+
+CPU bound tasks (computation heavy)
+→ Fixed Thread Pool sized to CPU cores
+→ Fork/Join for recursive divide and conquer
+→ Parallel streams for collections
+
+Async pipelines and chaining
+→ CompletableFuture (works great with virtual threads)
+
+Scheduled tasks
+→ ScheduledThreadPoolExecutor still used
+→ Virtual threads don't replace scheduling
+JDBC (Java Database Connectivity)
+standard API (interfaces) to talk to any database with same code
+
+JDBC Hierarchy
+Driver          → connects to database
+Connection      → represents one DB connection
+Statement       → executes SQL (never use - SQL injection)
+PreparedStatement → safe parameterized SQL (always use ✅)
+CallableStatement → executes stored procedures
+ResultSet       → holds query results
+
+JDBC Drivers (vendor implementations of JDBC interfaces)
+Type 1 → JDBC-ODBC Bridge (dead, removed Java 8)
+Type 2 → Native C/C++ library (rarely used)
+Type 3 → Middleware server (enterprise)
+Type 4 → Pure Java, talks directly to DB (everyone uses this ✅)
+         just add JAR dependency and works everywhere
+
+jdbc:mysql://localhost:3306/mydb
+  │     │         │            │
+  │     │         │            └── database name
+  │     │         └── host:port
+  │     └── which driver to use
+  └── always jdbc
+
+DriverManager
+factory that reads the URL prefix and asks registered drivers
+"who handles jdbc:mysql?" → MySQL driver says YES → returns connection
+modern java (6+) auto registers driver via ServiceLoader from JAR
+META-INF/services/java.sql.Driver inside vendor JAR
+
+DriverManager vs DataSource
+DriverManager → creates new connection every time (50-200ms) testing only
+DataSource    → borrows from pool (fast) always use in production
+
+Connection Pool (HikariCP default in Spring Boot)
+creating connection is expensive (TCP handshake, auth, session setup)
+pool keeps ready connections and lends them out
+our ConnectionPool code was a mini HikariCP!
+HikariCP, C3P0, DBCP are common libraries
+
+Raw JDBC flow
+1. getConnection()
+2. prepareStatement("SELECT * FROM users WHERE id = ?")
+3. stmt.setInt(1, id)
+4. stmt.executeQuery()
+5. read ResultSet → map to Java object
+6. close rs, stmt, conn (always in finally!)
+
+Spring simplifies this
+JdbcTemplate    → cleaner JDBC, no boilerplate
+JPA/Hibernate   → no SQL needed, just repository.findById()
+
+Full request journey
+Browser → Nginx → Tomcat → Servlet → Repository
+→ JDBC → Driver → Database
+→ ResultSet → Java object → JSON → back to browser
+
+Tomcat
+application server + servlet container
+listens HTTP, parses into HttpServletRequest/Response
+routes URL to correct servlet
+manages servlet lifecycle (init, service, destroy)
+manages thread pool (one instance, many threads per servlet!)
+instance variables shared across threads → must be thread safe!
+Java 21 + Spring Boot 3.2+ → virtual threads with one property
+spring.threads.virtual.enabled=true
+
+HTTP → Java
+Tomcat converts: raw HTTP → HttpServletRequest (headers,params,method)
+Jackson converts: JSON/XML body → Java objects (@RequestBody)
+Spring wires both automatically
+Java File Types
+.java     → raw source code (what you write)
+.class    → compiled bytecode (after javac compiles .java)
+.jar      → zip of .class files (your app after build, like an exe)
+.war      → jar but for web apps (contains servlets,jsp,web.xml)
+            deployed to Tomcat
+.ear      → zip of multiple wars+jars (enterprise, full Java EE app)
+            deployed to JBoss/WildFly
+.pom      → maven config file (dependencies, build config)
+
+simple flow
+you write → .java
+compiler builds → .class
+package → .jar (normal app) / .war (web app)
+deploy .war → Tomcat runs it
+deploy .ear → JBoss/WildFly runs it
+
+Spring Boot changes this
+embeds Tomcat INSIDE the .jar
+so you just run → java -jar myapp.jar
+no need to install Tomcat separately!
+fat jar / uber jar = jar + embedded tomcat + all dependencies inside
+
+---
+
+Full Flow Diagram
+Browser
+  │ HTTP Request
+  ▼
+Nginx (static files, SSL, load balancing)
+  │ forwards
+  ▼
+Tomcat (web server + servlet container)
+  │ HTTP → HttpServletRequest
+  │ routes URL → correct Servlet
+  ▼
+Servlet (your Java code)
+  │ calls
+  ▼
+Repository
+  │ borrows connection from
+  ▼
+Connection Pool (HikariCP)
+  │ uses
+  ▼
+JDBC PreparedStatement
+  │ sends SQL via
+  ▼
+Type 4 Driver (MySQL/PostgreSQL)
+  │ TCP connection
+  ▼
+Database
+  │ returns rows
+  ▼
+ResultSet → Java Object (manual / JdbcTemplate)
+OR
+JPA/Hibernate → Java Object (automatic)
+  │
+  ▼
+Jackson → JSON
+  │
+  ▼
+Tomcat → HTTP Response
+  │
+  ▼
+Browser
+SOLID
+
+S - Single Responsibility
+one class = one reason to change
+ask: "how many reasons do i have to change this class?"
+if more than one → split it
+ex: User class handling both user data AND sending emails → split into
+    User + EmailService
+
+O - Open Closed
+open for extension, closed for modification
+when you see multiple if/else or switch checking types → violation
+solution: use abstraction (interfaces) + factory pattern
+new behavior → add new class, don't touch existing code
+ex: instead of if shape == circle / if shape == square
+    make Shape interface → Circle implements, Square implements
+
+L - Liskov Substitution
+subclass must be fully replaceable by their parent
+violated when child inherits method it doesn't want or can't implement
+ex: Bird → fly() but Penguin extends Bird and can't fly → violation
+solutions:
+  → split parent into smaller interfaces (Interface Segregation!)
+  → use composition instead of inheritance
+  "if it breaks when you swap child for parent → LSP violated"
+
+I - Interface Segregation
+don't force classes to implement methods they don't need
+fat interface with many methods → violation
+solution: make thin focused interfaces each with one responsibility
+ex: don't have Animal with eat(),fly(),swim()
+    instead → Eatable, Flyable, Swimmable
+    class Duck implements Eatable, Flyable, Swimmable
+    class Penguin implements Eatable, Swimmable (no fly!)
+breaking ISP usually leads to breaking LSP too
+
+D - Dependency Inversion
+high level modules should not depend on low level modules
+both should depend on abstraction
+never use concrete class reference directly → use interface
+two ways to apply:
+  → dependency injection: receive interface in constructor
+    ex: UserService(NotificationSender sender) not (EmailService sender)
+  → method parameters: take interface not concrete class
+ex: 
+  ❌ UserService directly creates EmailService inside
+  ✅ UserService receives NotificationSender interface
+     EmailService implements NotificationSender
+     tomorrow swap to SMSService → UserService never changes!
+     Design Patterns
+common solutions engineers reached after facing the same problems
+repeatedly and trying different solutions — best practices for
+recurring scenarios
+
+3 Types:
+Creational  → how objects are created
+Structural  → how classes/objects are composed into bigger structures
+Behavioral  → how objects communicate and behave with each other
+
+---
+
+Creational Patterns
+
+Singleton
+one instance only of a class across the entire app
+how:
+  → private constructor (no one can call new)
+  → private static instance variable of same type
+  → public static getInstance() method
+thread safe version → double checked locking:
+
+private static volatile Instance instance; // volatile for visibility!
+
+public static Instance getInstance() {
+    if (instance == null) {                    // first check (no lock)
+        synchronized (Instance.class) {
+            if (instance == null) {            // second check (with lock)
+                instance = new Instance();
+            }
+        }
+    }
+    return instance;
+}
+
+why double check?
+  first check  → avoid locking every time (performance)
+  second check → in case two threads passed first check simultaneously
+why volatile?
+  → forces visibility so threads don't read stale cached value
+ex: DB connection pool, config manager, logger
+
+---
+
+Builder
+used when object creation is complex or has many constructor arguments
+instead of constructor with 10 params → chain readable methods
+makes code self-documented and easier to read
+
+❌ without builder
+new User("ahmed", 25, "cairo", "ahmed@gmail.com", true, "admin");
+// what is true? what order? confusing!
+
+✅ with builder
+User user = new User.Builder()
+    .name("ahmed")
+    .age(25)
+    .city("cairo")
+    .email("ahmed@gmail.com")
+    .isActive(true)
+    .role("admin")
+    .build();
+
+ex: StringBuilder, HTTP request builders, test data builders
+
+---
+
+Prototype
+used when object creation is expensive and we want copies
+make object implement Cloneable → clone() instead of new
+copies existing object's values into new object
+avoids re-running expensive setup again
+
+two types of cloning:
+shallow copy → copies references (nested objects still shared)
+deep copy    → copies everything including nested objects
+
+ex: copying config objects, game character templates
+
+---
+
+Factory
+separates creation logic from the caller
+instead of main doing if/else to decide which object to create
+→ move that if/else into a Factory class
+caller just says "give me this type" → factory decides and returns it
+
+❌ without factory (messy caller)
+if type == "dog" new Dog()
+else if type == "cat" new Cat()
+
+✅ with factory (clean caller)
+Animal animal = AnimalFactory.create("dog");
+
+factory returns interface/parent type → caller never knows concrete class
+connects directly to OCP → add new type = add new class, factory handles it
+Structural Patterns
+how classes and objects are composed into bigger structures
+
+---
+
+Adapter
+makes incompatible interfaces work together
+used when old service / third party returns different format than expected
+
+implementation:
+  → create Adapter class
+  → implements YOUR expected interface
+  → takes OLD service as composition (constructor injection)
+  → inside the method → call old service, convert/wrap result, return it
+
+ex: OldPaymentService returns PaymentResponse
+    but our system expects PaymentResult
+
+class PaymentAdapter implements PaymentResult {
+    private OldPaymentService oldService; // composition
+
+    PaymentAdapter(OldPaymentService oldService) {
+        this.oldService = oldService;
+    }
+
+    public PaymentResult pay(amount) {
+        PaymentResponse res = oldService.makePayment(amount); // old way
+        return convert(res); // adapt to new format
+    }
+}
+
+caller never knows about OldPaymentService → only sees PaymentResult ✅
+think of it like a power plug adapter — same electricity, different shape
+
+---
+
+Facade
+simplifies a complex set of operations behind one clean interface
+used when an operation requires calling multiple services in steps
+
+implementation:
+  → create Facade class
+  → takes all required services as composition (constructor injection)
+  → one method that calls them all internally in correct order
+  → caller just calls one method → facade handles everything
+
+ex: PlaceOrderFacade
+class PlaceOrderFacade {
+    private PaymentService payment;    // composition
+    private StockService stock;
+    private OrderService order;
+
+    public void placeOrder(Order o) {
+        payment.validate(o);           // step 1
+        stock.decrease(o);             // step 2
+        order.create(o);               // step 3
+    }
+}
+
+// caller
+facade.placeOrder(order); // one line, no complexity ✅
+
+difference from adapter:
+  adapter   → converts incompatible interface
+  facade    → simplifies complex operations behind one interface
+
+---
+
+Proxy
+controls and restricts access to another object
+sits exactly in the middle between caller and real object
+used for: logging, caching, access control, lazy loading
+
+implementation:
+  → both Proxy AND real object implement same interface
+  → Proxy takes real object as composition
+  → Proxy intercepts the call → does its work → forwards to real object
+
+ex: CachingProxy
+class UserServiceProxy implements UserService {
+    private UserService realService;        // composition
+    private Map<Integer, User> cache = new HashMap<>();
+
+    public User getUser(int id) {
+        if (cache.containsKey(id)) {
+            return cache.get(id);           // return from cache ✅
+        }
+        User user = realService.getUser(id); // forward to real service
+        cache.put(id, user);                 // cache for next time
+        return user;
+    }
+}
+
+caller uses UserService interface → never knows its a proxy ✅
+
+difference from facade:
+  facade → wraps MULTIPLE services into one
+  proxy  → wraps ONE service to control access to it
+
+---
+
+Decorator
+adds new behavior to objects dynamically without changing their class
+used when subclass hierarchy would get huge due to many combinations
+
+problem without decorator:
+Pizza → CheesePizza, PepperoniPizza, ChocolatePizza
+     → CheesePepperoniPizza, CheeseChocolatePizza... explodes! ❌
+
+implementation:
+  → base interface/class (Pizza)
+  → concrete base object (PlainPizza implements Pizza)
+  → each decorator implements same interface AND takes base as composition
+  → decorator adds its behavior then delegates to wrapped object
+
+ex:
+class ChocolateDecorator implements Pizza {
+    private Pizza pizza;               // composition — wraps any pizza
+
+    ChocolateDecorator(Pizza pizza) {
+        this.pizza = pizza;
+    }
+
+    public double getPrice() {
+        return pizza.getPrice() + 5;   // add chocolate price on top
+    }
+
+    public String getDescription() {
+        return pizza.getDescription() + " + chocolate";
+    }
+}
+
+// usage — wrap and stack decorators!
+Pizza pizza = new PlainPizza();
+pizza = new ChocolateDecorator(pizza);   // plain + chocolate
+pizza = new CheeseDecorator(pizza);      // plain + chocolate + cheese
+pizza = new PepperoniDecorator(pizza);   // plain + chocolate + cheese + pepperoni
+
+pizza.getPrice(); // sums everything up automatically ✅
+
+real world ex: Java IO!
+new BufferedReader(new FileReader("file.txt"));
+BufferedReader decorates FileReader → adds buffering on top 	
+
+---
+
+Key Implementation Summary
+
+Adapter  → implements YOUR interface + takes OLD service as composition
+           converts old format to new format inside the method
+
+Facade   → takes MULTIPLE services as composition
+           one method calls them all in correct order
+
+Proxy    → both proxy and real implement SAME interface
+           proxy takes real as composition
+           intercepts call → does extra work → forwards to real
+
+Decorator → implements SAME interface + takes SAME interface as composition
+            adds behavior then delegates to wrapped object
+            can be stacked multiple times!
+
+---
+
+Common Thread
+all four use composition over inheritance 
+all four wrap something and add behavior without changing original 
+all four hide complexity from the caller 
+---
+
+Abstract Factory
+factory of factories — for families of related objects
+when you have multiple related things that must be created together
+each family has its own factory
+abstract factory decides which family factory to return
+
+ex: UI components — Dark theme vs Light theme
+    DarkFactory  → creates DarkButton, DarkTextBox, DarkCheckbox
+    LightFactory → creates LightButton, LightTextBox, LightCheckbox
+
+AbstractFactory → returns DarkFactory or LightFactory
+each factory inside → creates its family of components
+
+difference:
+Factory         → one product, one factory, if/else returns object
+Abstract Factory → families of products, if/else returns a factory
+                   and that factory creates the related objects
+                   Behavioral Patterns
+how objects communicate and behave with each other
+
+---
+
+Chain of Responsibility
+request passes through a chain of handlers
+each handler checks its part → if ok passes to next → if not stops chain
+no handler needs to know the full chain → only knows its next
+
+implementation:
+  → each handler has reference to next handler
+  → each handler implements same interface/abstract class
+  → handle() method → do your check → if pass call next.handle()
+  → chain is built by linking handlers together
+
+ex: borrow a book
+class EmployeeHandler implements Handler {
+    private Handler next;              // reference to next in chain
+
+    public void setNext(Handler next) {
+        this.next = next;
+    }
+
+    public void handle(Request req) {
+        if (req.hasValidID()) {
+            next.handle(req);          // pass to next ✅
+        } else {
+            System.out.println("Invalid ID - rejected"); // stop chain ❌
+        }
+    }
+}
+
+// build the chain
+Handler employee = new EmployeeHandler();
+Handler manager  = new ManagerHandler();
+Handler finance  = new FinanceHandler();
+Handler borrow   = new BorrowHandler();
+
+employee.setNext(manager);
+manager.setNext(finance);
+finance.setNext(borrow);
+
+// start the chain
+employee.handle(request);
+
+real world ex:
+  → Java Servlet Filters (each filter passes to next)
+  → Spring Security filter chain
+  → logging levels (DEBUG → INFO → WARN → ERROR)
+  → middleware in Express (next() = pass to next handler!)
+
+---
+
+Observer
+one topic/subject → many subscribers
+when something happens → all subscribers get notified automatically
+subscribers don't know about each other → only know the topic
+
+implementation:
+  → Subject/Topic holds list of subscribers
+  → subscribe()   → add to list
+  → unsubscribe() → remove from list
+  → notify()      → loop and call update() on all subscribers
+  → each subscriber implements Observer interface with update() method
+
+ex:
+class Topic implements Subject {
+    private List<Observer> subscribers = new ArrayList<>();
+
+    public void subscribe(Observer o)   { subscribers.add(o); }
+    public void unsubscribe(Observer o) { subscribers.remove(o); }
+
+    public void notify(String event) {
+        for (Observer o : subscribers) {
+            o.update(event);           // notify all ✅
+        }
+    }
+}
+
+class EmailSubscriber implements Observer {
+    public void update(String event) {
+        System.out.println("sending email for: " + event);
+    }
+}
+
+// usage
+Topic topic = new Topic();
+topic.subscribe(new EmailSubscriber());
+topic.subscribe(new SMSSubscriber());
+
+topic.notify("new order placed");
+// EmailSubscriber notified ✅
+// SMSSubscriber notified ✅
+
+real world ex:
+  → Java EventListener
+  → message queues (Kafka topics + consumers)
+  → Spring @EventListener
+  → frontend frameworks (React state changes notify components)
+
+---
+
+Key Implementation Summary
+
+Chain of Responsibility
+  → each handler holds reference to next
+  → handle() → check → pass or stop
+  → chain built by linking handlers
+  → caller only calls first in chain
+
+Observer
+  → subject holds list of observers
+  → subscribe/unsubscribe to manage list
+  → notify() loops and calls update() on all
+  → observers are decoupled from each other
+
+---
+
+Common Thread
+both decouple the sender from receiver ✅
+chain  → one request, passes through many handlers sequentially
+observer → one event, notifies many subscribers simultaneously

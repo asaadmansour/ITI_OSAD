@@ -1,0 +1,4 @@
+2026-03-25 22:56:04 | SENT | password_reset | alice@example.com
+2026-03-25 22:56:04 | SENT | password_reset | bob@example.com
+2026-03-25 22:56:04 | SENT | promotion | alice@example.com
+2026-03-25 22:56:04 | SENT | promotion | bob@example.com

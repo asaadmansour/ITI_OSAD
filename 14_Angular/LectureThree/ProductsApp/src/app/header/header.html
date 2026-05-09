@@ -1,0 +1,13 @@
+<div class="flex flex-col md:flex-row p-4 gap-4 md:gap-0 md:justify-between md:items-center bg-white shadow-sm">
+    <div class="text-lg md:text-xl font-bold text-blue-600 text-center md:text-left">
+        <a routerLink="/">Products App</a>
+    </div>
+    <nav>
+        <ul class="flex flex-wrap justify-center md:justify-end gap-4 md:gap-10 text-sm md:text-base text-blue-600 list-none">
+            <li><a routerLink="/products" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="hover:text-blue-800 hover:underline transition-all">Products</a></li>
+            <li><a routerLink="/signup" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="hover:text-blue-800 hover:underline transition-all">Sign Up</a></li>
+            <li><a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="hover:text-blue-800 hover:underline transition-all">Login</a></li>
+            <li><a routerLink="/cart" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="hover:text-blue-800 hover:underline transition-all">Cart</a></li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,47 @@
+<div class="flex items-center justify-center min-h-screen bg-gray-50">
+    <div class="flex flex-col w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+        <h1 class="font-bold text-3xl text-blue-600 mb-6 text-center">Log in</h1>
+        <form class="flex flex-col w-full space-y-4" #loginform="ngForm" (ngSubmit)="onSubmit()" action="">
+            <div class="flex flex-col">
+                <label for="email" class="mb-2 text-sm font-medium text-gray-700">E-mail</label>
+                <input 
+                    class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                    type="email" 
+                    #emailInput="ngModel"
+                    id="email"
+                    name="email" 
+                    [(ngModel)]="email"
+                    placeholder="Enter your email"
+                    required
+                    >
+                    @if(emailInput.invalid && (emailInput.touched || loginform.submitted)) {
+                        @if (emailInput.errors?.['required']) {
+                            <p class="mt-1 text-red-500">Email is required</p>
+                        }
+                    }
+            </div>
+            <div class="flex flex-col">
+                <label for="password" class="mb-2 text-sm font-medium text-gray-700">Password</label>
+                <input 
+                    class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                    type="password" 
+                    id="password"
+                    name="password" 
+                    [(ngModel)]="password"
+                    #passwordInput = "ngModel"
+                    placeholder="Enter your password"
+                    required>
+                    @if(passwordInput.invalid && (passwordInput.touched || loginform.submitted)) {
+                        @if (passwordInput.errors?.["required"]) {
+                            <p class="mt-1 text-red-500">Password is required</p>
+                        }
+                    }
+            </div>
+            <button 
+                type="submit" 
+                class=" cursor-pointer w-full py-3 mt-4 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 font-medium">
+                Log In
+            </button>
+        </form>
+    </div>
+</div>

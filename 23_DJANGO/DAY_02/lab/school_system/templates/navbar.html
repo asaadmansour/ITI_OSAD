@@ -1,0 +1,19 @@
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">ITI School</a>
+            <ul class="nav-links">
+                <li><a href="/" {% if request.path == "/" %}class="active"{% endif %}>Home</a></li>
+                <li><a href="/students/" {% if request.path == "/students/" %}class="active"{% endif %}>Students</a></li>
+                <li><a href="/subjects/" {% if request.path == "/subjects/" %}class="active"{% endif %}>Subjects</a></li>
+                <li><a href="/grades/" {% if request.path == "/grades/" %}class="active"{% endif %}>Grades</a></li>
+                <li><a href="/feedback/" {% if request.path == "/feedback/" %}class="active"{% endif %}>Contact Us</a></li>
+                {% if user.is_authenticated %}
+                <li>
+                    {% include "accounts/logout.html" %}
+                </li>
+                {% else %}
+                <li><a href="{% url 'login' %}" {% if request.path == "/accounts/login/" %}class="active"{% endif %}>Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>

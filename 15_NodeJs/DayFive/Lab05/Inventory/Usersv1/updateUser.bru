@@ -1,0 +1,23 @@
+meta {
+  name: updateUser
+  type: http
+  seq: 3
+}
+
+patch {
+  url: http://127.0.0.1:3000/users/6990c3d199c45a951747aaed
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "username": "karimahmed",
+    "firstName" : "karim",
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

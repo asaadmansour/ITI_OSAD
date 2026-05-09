@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Earbuds, IPX8",
+    "description": "Organic Cotton, fairytale certified",
+    "price": 89.99,
+    "image": "/wireless-earbuds.png",
+    "rating": 5,
+    "quantity": 15
+  },
+  {
+    "id": 2,
+    "name": "AirPods Max",
+    "description": "A perfect balance of high-fidelity audio",
+    "price": 559.99,
+    "image": "/airpods-max.png",
+    "rating": 5,
+    "quantity": 0
+  },
+  {
+    "id": 3,
+    "name": "Bose BT Earphones",
+    "description": "Table with air purifier, stained veneer/black",
+    "price": 289.99,
+    "image": "/bose-earphones.png",
+    "rating": 4,
+    "quantity": 8
+  },
+  {
+    "id": 4,
+    "name": "VIVEFOX Headphones",
+    "description": "Wired Stereo Headphones With Mic",
+    "price": 39.99,
+    "image": "/vivefox-headphones.png",
+    "rating": 5,
+    "quantity": 23
+  }
+]

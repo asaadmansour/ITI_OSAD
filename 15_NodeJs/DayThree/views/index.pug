@@ -1,0 +1,12 @@
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/styles/style.css")
+  body
+    .container
+      h1= message
+      ul.product-list
+        each product in products
+          li.product-item
+            span.product-name= product.itemName
+            span.product-quantity Qty: #{product.quantity}

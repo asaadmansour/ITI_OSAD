@@ -1,0 +1,18 @@
+<div class="flex flex-col justify-center items-center p-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-7xl">
+        @if (isLoading()) {
+            <div class="text-center p-10">
+                <p class="text-xl">Loading products...</p>
+            </div>
+        } @else {
+            @for (product of products(); track product.id) {
+                <app-productcomponent [product]="product"></app-productcomponent>
+            }
+            @empty {
+                <p>No products found!</p>
+            }
+        }
+        
+    </div>
+</div>
+

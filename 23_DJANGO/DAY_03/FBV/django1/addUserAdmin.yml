@@ -1,0 +1,26 @@
+info:
+  name: addUserAdmin
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://127.0.0.1:8000/students/
+  body:
+    type: json
+    data: |-
+      {
+        "username": "ahmed123",
+        "password": "securepass123",
+        "name": "Ahmed",
+        "email": "ahmed@gmail.com",
+        "age": 20,
+        "date_of_birth": "2004-01-15",
+        "gpa": 3.5
+      }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

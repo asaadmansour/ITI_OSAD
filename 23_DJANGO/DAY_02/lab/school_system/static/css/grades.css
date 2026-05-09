@@ -1,0 +1,141 @@
+/* Grades Page - Scoped Styles */
+
+/* ── List page wrapper ──────────────────────── */
+.grades-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+/* ── Table ─────────────────────────────────── */
+.grades-table {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.grades-table th,
+.grades-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.grades-table th {
+    background: #1a1a1a;
+    color: white;
+    font-weight: 600;
+}
+
+.grades-table tr:hover {
+    background: #f5f5f5;
+}
+
+/* ── "Register New Grade" link button ──────── */
+.register-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #1a1a1a;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+    align-self: flex-start;
+}
+
+.register-button:hover {
+    background: #333;
+}
+
+/* ── Register form page — extend register.css styles with select support ── */
+.register-form select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.2s;
+    appearance: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.register-form select:focus {
+    border-color: #1a1a1a;
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .grades-table th,
+    .grades-table td {
+        padding: 0.5rem;
+    }
+}
+
+/* ── Actions row (register + search) ───────── */
+.grades-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* ── Search form ────────────────────────────── */
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.2s;
+}
+
+.search-input:focus {
+    border-color: #1a1a1a;
+    outline: none;
+}
+
+/* ── Search page extras ─────────────────────── */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.no-results {
+    color: #666;
+    font-size: 1rem;
+}
+
+.back-link {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* ── register-button used as <button> ───────── */
+button.register-button {
+    border: none;
+    cursor: pointer;
+}

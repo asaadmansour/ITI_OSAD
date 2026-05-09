@@ -1,0 +1,25 @@
+meta {
+  name: addProduct
+  type: http
+  seq: 2
+}
+
+post {
+  url: 127.0.0.1:3000/products
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "owner": "698f37441477c5d95dfe715f",
+      "name": "iphone 17",
+      "category": "electronics",
+      "quantity": 3
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/grades.css' %}">
+{% endblock %}
+
+{% block grades %}
+<main class="grades-wrapper">
+
+    <h2 class="section-title">Search Grades</h2>
+
+    <form method="GET" action="{% url 'grades:search' %}" class="search-form">
+        <input
+            type="text"
+            name="q"
+            placeholder="Search by student or subject…"
+            value="{{ query }}"
+            class="search-input"
+            autofocus
+        >
+        <button type="submit" class="register-button">Search</button>
+    </form>
+
+    {% if query %}
+        {% if results %}
+            <table class="grades-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Student</th>
+                        <th>Subject</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for grade in results %}
+                    <tr>
+                        <td>{{ grade.id }}</td>
+                        <td>{{ grade.student }}</td>
+                        <td>{{ grade.subject }}</td>
+                        <td>{{ grade.grade }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="no-results">No grades found for "<strong>{{ query }}</strong>".</p>
+        {% endif %}
+    {% endif %}
+
+    <a href="{% url 'grades:grades' %}" class="back-link">← Back to all grades</a>
+
+</main>
+{% endblock grades %}

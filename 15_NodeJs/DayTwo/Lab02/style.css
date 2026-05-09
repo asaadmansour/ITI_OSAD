@@ -1,0 +1,13 @@
+body.items {
+background-color: rgb(192, 173, 173);
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+.divOne {
+    background-color: aqua;
+}
+img {
+    width: 400px;
+    height: 400px;
+}

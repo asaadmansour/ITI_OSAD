@@ -1,0 +1,52 @@
+[
+  {
+    "id": 3,
+    "itemName": "android case",
+    "quantity": 15,
+    "category": "Cases",
+    "isDeleted": false
+  },
+  {
+    "id": 4,
+    "itemName": "Bottle",
+    "quantity": 1,
+    "category": "Utils",
+    "isDeleted": false
+  },
+  {
+    "id": 5,
+    "itemName": "Laptop",
+    "quantity": 10,
+    "category": "Electronics",
+    "isDeleted": false
+  },
+  {
+    "id": 6,
+    "itemName": "Camera",
+    "quantity": 10,
+    "category": "Electronics",
+    "isDeleted": false
+  },
+  {
+    "id": 7,
+    "itemName": "v8",
+    "quantity": 1,
+    "category": "software",
+    "isDeleted": false
+  },
+  { "id": 8, "itemName": "v81", "quantity": 1, "isDeleted": true },
+  {
+    "id": 9,
+    "itemName": "mouse",
+    "quantity": 1,
+    "category": "general",
+    "isDeleted": false
+  },
+  {
+    "id": 10,
+    "itemName": "RGX MousePad",
+    "quantity": 15,
+    "category": "general",
+    "isDeleted": false
+  }
+]

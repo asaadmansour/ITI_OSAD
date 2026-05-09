@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java Notes — Complete Study Guide</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#0f1117;--sf:#1a1d27;--sf2:#21263a;--bd:#2e3350;--ac:#6c63ff;--ac2:#00d4aa;--ac3:#ff6b6b;--ac4:#ffd166;--tx:#e2e8f0;--txm:#8892a4;--cb:#12151e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx);line-height:1.75;font-size:15px;}
+#sb{position:fixed;top:0;left:0;width:255px;height:100vh;background:var(--sf);border-right:1px solid var(--bd);overflow-y:auto;padding:20px 0;z-index:100;}
+#sb h2{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--txm);padding:0 18px 10px;border-bottom:1px solid var(--bd);margin-bottom:6px;}
+#sb a{display:block;padding:7px 18px;color:var(--txm);text-decoration:none;font-size:13px;border-left:3px solid transparent;transition:all .2s;}
+#sb a:hover{color:var(--ac);border-left-color:var(--ac);background:rgba(108,99,255,.08);}
+main{margin-left:255px;padding:48px 56px;max-width:1040px;}
+.hero{margin-bottom:52px;padding-bottom:36px;border-bottom:1px solid var(--bd);}
+.hero h1{font-size:38px;font-weight:700;background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;}
+.hero p{color:var(--txm);}
+section{margin-bottom:60px;scroll-margin-top:20px;}
+h2.st{font-size:21px;font-weight:700;color:var(--ac);border-bottom:2px solid var(--bd);padding-bottom:9px;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+h2.st .n{background:var(--ac);color:#fff;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;}
+h2.st.red{color:var(--ac3);}
+h3.s{font-size:15px;font-weight:600;color:var(--ac2);margin:24px 0 9px;}
+p{margin-bottom:11px;}
+ul,ol{padding-left:20px;margin-bottom:12px;}
+li{margin-bottom:5px;}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:18px 22px;margin-bottom:16px;}
+.ct{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ac4);margin-bottom:10px;}
+pre{background:var(--cb);border:1px solid var(--bd);border-radius:9px;padding:16px 20px;overflow-x:auto;margin:12px 0 18px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;color:#c9d1d9;}
+code{font-family:'JetBrains Mono',monospace;background:var(--cb);border:1px solid var(--bd);padding:2px 6px;border-radius:4px;font-size:13px;color:var(--ac2);}
+.it{display:inline-block;background:rgba(255,107,107,.15);border:1px solid var(--ac3);color:var(--ac3);font-size:11px;font-weight:600;padding:1px 8px;border-radius:20px;margin-left:7px;vertical-align:middle;}
+.cl{border-left:4px solid var(--ac4);background:rgba(255,209,102,.07);border-radius:0 8px 8px 0;padding:12px 16px;margin:14px 0;font-size:14px;}
+.cl.danger{border-left-color:var(--ac3);background:rgba(255,107,107,.07);}
+.cl.info{border-left-color:var(--ac);background:rgba(108,99,255,.07);}
+.cl.ok{border-left-color:var(--ac2);background:rgba(0,212,170,.07);}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}
+table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:14px;}
+th{background:var(--sf2);color:var(--ac2);text-align:left;padding:9px 13px;font-weight:600;}
+td{padding:8px 13px;border-top:1px solid var(--bd);vertical-align:top;}
+tr:hover td{background:rgba(255,255,255,.02);}
+.tree{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--cb);border:1px solid var(--bd);border-radius:9px;padding:16px 20px;line-height:1.8;margin-bottom:16px;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-thumb{background:var(--bd);border-radius:3px;}
+@media(max-width:860px){#sb{display:none;}main{margin-left:0;padding:28px 16px;}.g2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav id="sb">
+  <h2>☕ Java Notes</h2>
+  <a href="#basics">1. Basics &amp; Fundamentals</a>
+  <a href="#oop">2. OOP</a>
+  <a href="#strings">3. Strings</a>
+  <a href="#collections">4. Collections Framework</a>
+  <a href="#exceptions">5. Exceptions</a>
+  <a href="#functional">6. Functional Programming</a>
+  <a href="#io">7. I/O &amp; NIO</a>
+  <a href="#threads">8. Multithreading</a>
+  <a href="#jdbc">9. JDBC &amp; Databases</a>
+  <a href="#web">10. Web &amp; Servlets</a>
+  <a href="#solid">11. SOLID Principles</a>
+  <a href="#patterns">12. Design Patterns</a>
+  <a href="#interview" style="color:var(--ac3);margin-top:8px;">🔴 Interview Gotchas</a>
+</nav>
+<main>
+<div class="hero">
+  <h1>Java Study Notes</h1>
+  <p>Full reference — core Java, collections, exceptions, multithreading, JDBC, design patterns, SOLID, and interview traps. Red tags = interview high-frequency topics.</p>
+</div>
+
+<!-- 1. BASICS -->
+<section id="basics">
+<h2 class="st"><span class="n">1</span> Basics &amp; Fundamentals</h2>
+
+<h3 class="s">Primitive vs Reference Types <span class="it">interview</span></h3>
+<div class="g2">
+<div class="card"><div class="ct">Primitive Types</div><ul>
+  <li><code>byte, short, int, long, float, double, char, boolean</code></li>
+  <li>Stored directly on the stack</li>
+  <li>Default: <code>0</code>, <code>false</code>, <code>'\u0000'</code></li>
+</ul></div>
+<div class="card"><div class="ct">Reference Types</div><ul>
+  <li>Objects, arrays, Strings — stored on heap</li>
+  <li>Variable holds a pointer (memory address)</li>
+  <li>Default: <code>null</code></li>
+  <li>Compare with <code>.equals()</code>, not <code>==</code></li>
+</ul></div>
+</div>
+
+<h3 class="s">Wrapper Classes &amp; Autoboxing <span class="it">interview</span></h3>
+<p>Each primitive has a wrapper: <code>int→Integer</code>, <code>double→Double</code>, <code>char→Character</code>, etc.</p>
+<ul>
+  <li><strong>Autoboxing</strong> — automatic primitive → wrapper (when adding int to List&lt;Integer&gt;)</li>
+  <li><strong>Unboxing</strong> — automatic wrapper → primitive</li>
+</ul>
+<pre>List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+list.add(42);          // autoboxing: int → Integer
+int val = list.get(0); // unboxing: Integer → int</pre>
+<div class="cl danger"><strong>Trap:</strong> Integer caches -128 to 127. So <code>Integer a=127, b=127; a==b</code> → <code>true</code>, but <code>Integer a=200, b=200; a==b</code> → <code>false</code>! Always use <code>.equals()</code>.</div>
+
+<h3 class="s">Pass by Value <span class="it">interview</span></h3>
+<div class="cl info"><strong>Java is always pass-by-value.</strong> For objects, the value is the reference (memory address). A method can mutate the object's contents, but it cannot make the caller's variable point to a different object.</div>
+<pre>void change(int x)       { x = 99; }           // caller's int unchanged
+void mutate(List&lt;String&gt; list) { list.add("hi"); } // caller's list IS mutated
+void reassign(List&lt;String&gt; list) { list = new ArrayList&lt;&gt;(); } // caller unchanged</pre>
+
+<h3 class="s">Type Casting</h3>
+<ul>
+  <li><strong>Widening (automatic)</strong> — smaller → larger (<code>int→long→double</code>), safe</li>
+  <li><strong>Narrowing (manual)</strong> — larger → smaller, may lose data: <code>(int) myDouble</code></li>
+  <li><strong>Upcasting</strong> — child object → parent reference, always safe</li>
+  <li><strong>Downcasting</strong> — parent reference → child type, use <code>instanceof</code> first to avoid <code>ClassCastException</code></li>
+</ul>
+<pre>Animal a = new Dog();      // upcasting — safe ✅
+if (a instanceof Dog dog)  // Java 16+ pattern matching
+    dog.bark();             // downcasting — safe with instanceof check ✅</pre>
+
+<h3 class="s">Variable Naming Rules <span class="it">interview</span></h3>
+<ul>
+  <li>Can start with a letter, <code>_</code>, or <code>$</code> — cannot start with a digit</li>
+  <li>Case-sensitive, no reserved keywords, unlimited length</li>
+</ul>
+
+<h3 class="s">Variable Shadowing <span class="it">interview</span></h3>
+<p>A local variable with the same name as an instance field hides the field in its scope. Use <code>this.field</code> to access the instance field.</p>
+<pre>class Foo {
+    int x = 10;
+    void bar() {
+        int x = 20;               // shadows instance x
+        System.out.println(x);       // 20 — local
+        System.out.println(this.x);  // 10 — instance
+    }
+}</pre>
+
+<h3 class="s">Static vs Instance Variables <span class="it">interview</span></h3>
+<table>
+  <tr><th>Static</th><th>Instance</th></tr>
+  <tr><td>Belongs to the class, shared by all objects</td><td>Each object has its own copy</td></tr>
+  <tr><td>Allocated when class is loaded</td><td>Allocated at object creation</td></tr>
+  <tr><td>Accessed via <code>ClassName.field</code></td><td>Accessed via <code>object.field</code></td></tr>
+</table>
+
+<h3 class="s">Initialization Order <span class="it">interview</span></h3>
+<p>Order within a single class:</p>
+<ol>
+  <li>Static fields &amp; static blocks (in declaration order) — once when class loads</li>
+  <li>Instance fields &amp; instance initializer blocks — every object creation</li>
+  <li>Constructor body</li>
+</ol>
+<p><strong>With inheritance</strong> — the full order when creating a child object:</p>
+<ol>
+  <li>Parent static fields + static blocks (only once, when class first loaded)</li>
+  <li>Child static fields + static blocks (only once)</li>
+  <li>Parent instance fields + instance initializer blocks</li>
+  <li>Parent constructor body</li>
+  <li>Child instance fields + instance initializer blocks</li>
+  <li>Child constructor body</li>
+</ol>
+<pre>class Parent {
+    static { System.out.println("Parent static"); }  // 1st
+    { System.out.println("Parent instance"); }        // 3rd
+    Parent() { System.out.println("Parent constructor"); } // 4th
+}
+class Child extends Parent {
+    static { System.out.println("Child static"); }   // 2nd
+    { System.out.println("Child instance"); }         // 5th
+    Child() { System.out.println("Child constructor"); } // 6th
+}</pre>
+<div class="cl danger">Multiple static blocks are executed in the order they appear in the file. You can have as many as you want.</div>
+
+<h3 class="s">Number Systems <span class="it">interview</span></h3>
+<ul>
+  <li>Octal: starts with <code>0</code> — <code>053</code> = 5×8+3 = <strong>43</strong> decimal</li>
+  <li>Hex: starts with <code>0x</code> — <code>0xFF</code> = 255</li>
+  <li>Binary: starts with <code>0b</code> — <code>0b1010</code> = 10</li>
+</ul>
+
+<h3 class="s">var — Local Type Inference (Java 10+)</h3>
+<p>The <code>var</code> keyword lets the compiler infer the type of a local variable from context. It is NOT dynamic typing — the type is fixed at compile time.</p>
+<pre>var list = new ArrayList&lt;String&gt;();  // inferred as ArrayList&lt;String&gt;
+var name = "ahmed";                   // inferred as String
+var i = 0;                            // inferred as int</pre>
+<ul>
+  <li>Only for local variables — NOT for fields, method params, or return types</li>
+  <li>Cannot be initialized to <code>null</code> (compiler can't infer the type)</li>
+  <li>Use when the type is obvious from the right side; avoid when it harms readability</li>
+</ul>
+
+<h3 class="s">Enums <span class="it">interview</span></h3>
+<p>Enums are special classes that represent a fixed set of constants. They are type-safe and can have fields, methods, and constructors.</p>
+<pre>enum Day {
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+}
+
+// Enum with fields and methods
+enum Planet {
+    MERCURY(3.303e+23, 2.4397e6),
+    EARTH(5.976e+24, 6.37814e6);
+
+    private final double mass;
+    private final double radius;
+
+    Planet(double mass, double radius) {
+        this.mass = mass;
+        this.radius = radius;
+    }
+
+    double surfaceGravity() { return 6.67300E-11 * mass / (radius * radius); }
+}</pre>
+<ul>
+  <li><code>Day.values()</code> → returns all constants as an array</li>
+  <li><code>Day.MONDAY.name()</code> → <code>"MONDAY"</code> (String)</li>
+  <li><code>Day.MONDAY.ordinal()</code> → <code>0</code> (position, 0-indexed)</li>
+  <li><code>Day.valueOf("MONDAY")</code> → <code>Day.MONDAY</code></li>
+  <li>Enums implicitly extend <code>java.lang.Enum</code>, so they can't extend another class</li>
+  <li>Enums can implement interfaces</li>
+  <li><code>EnumSet</code> and <code>EnumMap</code> are optimized collection types for enums</li>
+  <li>Use in switch statements — more readable and type-safe than String/int constants</li>
+</ul>
+
+<h3 class="s">Arrays <span class="it">interview</span></h3>
+<ul>
+  <li><strong>Array vs ArrayList:</strong> Array is fixed-size, can hold primitives, faster. ArrayList is dynamic, only objects, more flexible.</li>
+  <li><strong>Multidimensional arrays:</strong> <code>int[][] grid = new int[3][4];</code></li>
+  <li><strong>Jagged arrays</strong> — rows can have different lengths. Declared and filled row by row:</li>
+</ul>
+<pre>int[][] jagged = new int[3][];
+jagged[0] = new int[]{1, 2};         // row 0 has 2 elements
+jagged[1] = new int[]{3, 4, 5};     // row 1 has 3 elements
+jagged[2] = new int[]{6};           // row 2 has 1 element
+
+// Access: jagged[row][col]
+System.out.println(jagged[1][2]);   // 5</pre>
+
+<h3 class="s">Garbage Collection &amp; References</h3>
+<ul>
+  <li><strong>Strong reference</strong> — never GC'd while reachable</li>
+  <li><strong>Weak reference</strong> (<code>WeakReference&lt;T&gt;</code>) — GC can collect even if weakly reachable (good for caches)</li>
+  <li><strong>Soft reference</strong> — only collected when JVM is low on memory</li>
+  <li><code>finalize()</code> is deprecated — use try-with-resources instead</li>
+</ul>
+
+<h3 class="s">Stack vs Heap <span class="it">interview</span></h3>
+<table>
+  <tr><th>Stack</th><th>Heap</th></tr>
+  <tr><td>Local variables &amp; method frames</td><td>All objects</td></tr>
+  <tr><td>Per-thread (each thread has its own)</td><td>Shared across all threads</td></tr>
+  <tr><td>LIFO, very fast</td><td>Managed by GC</td></tr>
+  <tr><td><code>StackOverflowError</code> if full</td><td><code>OutOfMemoryError</code> if full</td></tr>
+</table>
+</section>
+
+<!-- 2. OOP -->
+<section id="oop">
+<h2 class="st"><span class="n">2</span> Object-Oriented Programming</h2>
+
+<h3 class="s">The 4 Pillars</h3>
+<div class="g2">
+<div class="card"><div class="ct">Encapsulation</div><p>Bundle data &amp; behavior together. Hide state with <code>private</code> fields, expose via getters/setters. Protects from invalid state.</p></div>
+<div class="card"><div class="ct">Abstraction</div><p>Expose only what's necessary — hide implementation details. Done via abstract classes (partial impl) and interfaces (pure contracts).</p></div>
+<div class="card"><div class="ct">Inheritance</div><p>Child extends parent with <code>extends</code>. Single-inheritance only for classes. All classes implicitly extend <code>Object</code>.</p></div>
+<div class="card"><div class="ct">Polymorphism</div><p><strong>Compile-time</strong>: method overloading (same name, different params). <strong>Runtime</strong>: overriding (child redefines parent method — dynamic dispatch).</p></div>
+</div>
+
+<h3 class="s">Abstract Class vs Interface <span class="it">interview</span></h3>
+<table>
+  <tr><th>Abstract Class</th><th>Interface</th></tr>
+  <tr><td>Can have state (fields)</td><td>Only constants (<code>public static final</code>)</td></tr>
+  <tr><td>Can have constructors</td><td>No constructors</td></tr>
+  <tr><td>Single inheritance only</td><td>A class can implement multiple interfaces</td></tr>
+  <tr><td>Any access modifiers</td><td>Members are <code>public</code> by default</td></tr>
+  <tr><td>Use when sharing code among related classes</td><td>Use for unrelated classes to share a contract</td></tr>
+</table>
+<p>Java 8+: interfaces can have <code>default</code> and <code>static</code> methods. Java 9+: <code>private</code> methods too.</p>
+
+<h3 class="s">Multiple Inheritance &amp; Diamond Problem <span class="it">interview</span></h3>
+<p>Java doesn't allow a class to <code>extend</code> multiple classes. If both parents have the same method, the compiler can't decide which behavior to inherit — this is the <strong>diamond problem</strong>. Interfaces work around it by requiring the implementing class to override the conflicting <code>default</code> method.</p>
+
+<h3 class="s">Method Overloading vs Overriding <span class="it">interview</span></h3>
+<table>
+  <tr><th>Overloading</th><th>Overriding</th></tr>
+  <tr><td>Same class, same name, different parameters</td><td>Child redefines parent's method with same signature</td></tr>
+  <tr><td>Resolved at compile-time</td><td>Resolved at runtime (dynamic dispatch)</td></tr>
+  <tr><td>Return type can differ freely</td><td>Return type must be same or covariant</td></tr>
+  <tr><td>Access modifier: anything</td><td>Cannot reduce parent's access modifier</td></tr>
+</table>
+
+<h3 class="s">super and this <span class="it">interview</span></h3>
+<ul>
+  <li><code>this</code> — current object reference; also calls another constructor: <code>this(args)</code> (must be first statement)</li>
+  <li><code>super</code> — parent class reference; <code>super(args)</code> calls parent constructor (must be first statement); <code>super.method()</code> calls parent method</li>
+</ul>
+
+<h3 class="s">Immutable Objects <span class="it">interview</span></h3>
+<ol>
+  <li>Declare class as <code>final</code></li>
+  <li>All fields <code>private final</code></li>
+  <li>No setters</li>
+  <li>Deep-copy mutable fields in constructor and getters</li>
+</ol>
+<p>Examples: <code>String</code>, <code>Integer</code>, <code>LocalDate</code></p>
+
+<h3 class="s">Shallow vs Deep Copy <span class="it">interview</span></h3>
+<ul>
+  <li><strong>Shallow copy</strong> — copies the object, but nested object references still point to the same originals. Changes to nested objects affect both copies.</li>
+  <li><strong>Deep copy</strong> — recursively copies everything. Each copy is fully independent.</li>
+  <li>Default <code>Object.clone()</code> is shallow. Override <code>clone()</code> or use serialization for deep copy.</li>
+</ul>
+
+<h3 class="s">Serialization <span class="it">interview</span></h3>
+<p>Converting an object to a byte stream (to save/send) and back. Implement <code>Serializable</code> (marker interface). Define <code>private static final long serialVersionUID</code> for version compatibility. Mark sensitive fields <code>transient</code> to skip them.</p>
+
+<h3 class="s">Anonymous Inner Classes &amp; Lambda <span class="it">interview</span></h3>
+<p>An anonymous inner class implements an interface or extends a class inline, without naming the class. Since Java 8, functional interfaces can replace them with lambdas.</p>
+<pre>// Anonymous inner class (old way)
+Runnable r = new Runnable() {
+    public void run() { System.out.println("hi"); }
+};
+
+// Lambda (new way — same thing, much shorter)
+Runnable r = () -> System.out.println("hi");</pre>
+<p>Anonymous classes can capture effectively final local variables. They are useful when you need to implement a non-functional interface (more than one method) inline.</p>
+
+<h3 class="s">Generics &amp; Type Erasure <span class="it">interview</span></h3>
+<p>Generics add compile-time type safety. At runtime, type parameters are erased — replaced with <code>Object</code> or the bound. This is <strong>type erasure</strong>.</p>
+<ul>
+  <li>You can't do <code>new T()</code>, <code>instanceof T</code>, or create <code>T[]</code> at runtime</li>
+  <li><code>List&lt;String&gt;</code> and <code>List&lt;Integer&gt;</code> are the same type at runtime (<code>List</code>)</li>
+  <li>Wildcards: <code>? extends T</code> (upper bound — read), <code>? super T</code> (lower bound — write)</li>
+</ul>
+
+<h3 class="s">Memory Leaks in Java <span class="it">interview</span></h3>
+<p>Java has a GC but memory leaks are still possible when objects are unintentionally kept reachable:</p>
+<ul>
+  <li><strong>Static collections</strong> — adding objects to a static Map/List that never get removed</li>
+  <li><strong>Unclosed resources</strong> — streams, connections not closed (use try-with-resources)</li>
+  <li><strong>Listeners/callbacks not removed</strong> — registered observers never unsubscribed</li>
+  <li><strong>Inner class holding outer reference</strong> — non-static inner class always holds a ref to its outer class</li>
+  <li><strong>ThreadLocal not cleaned up</strong> — in thread pools, ThreadLocal values survive task boundaries</li>
+</ul>
+
+<h3 class="s">Access Modifiers <span class="it">interview</span></h3>
+<table>
+  <tr><th>Modifier</th><th>Same Class</th><th>Same Package</th><th>Subclass</th><th>Everywhere</th></tr>
+  <tr><td><code>public</code></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+  <tr><td><code>protected</code></td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr>
+  <tr><td>(default / package-private)</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td></tr>
+  <tr><td><code>private</code></td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+</table>
+<div class="cl info">No modifier = package-private (default). <code>protected</code> allows subclass access even from different packages. Overriding method cannot reduce the parent's access modifier.</div>
+
+<h3 class="s">Nested &amp; Inner Classes <span class="it">interview</span></h3>
+<table>
+  <tr><th>Type</th><th>Static?</th><th>Needs outer instance?</th><th>Use case</th></tr>
+  <tr><td>Static nested class</td><td>Yes</td><td>No</td><td>Helper class logically grouped with outer</td></tr>
+  <tr><td>Inner (non-static) class</td><td>No</td><td>Yes — always holds ref to outer</td><td>Needs outer class state</td></tr>
+  <tr><td>Local class</td><td>No</td><td>Yes (if non-static context)</td><td>Defined inside a method</td></tr>
+  <tr><td>Anonymous class</td><td>No</td><td>Depends</td><td>One-shot interface implementation inline</td></tr>
+</table>
+<div class="cl danger">Non-static inner classes always hold an implicit reference to the outer class instance — this can cause memory leaks if the inner class outlives the outer class.</div>
+
+<h3 class="s">Annotations <span class="it">interview</span></h3>
+<p>Annotations provide metadata about code to the compiler, tools, or runtime. They don't change program logic directly.</p>
+<ul>
+  <li><code>@Override</code> — tells compiler this method overrides a parent method; catches typos</li>
+  <li><code>@Deprecated</code> — marks a method/class as outdated; compiler issues a warning</li>
+  <li><code>@SuppressWarnings</code> — suppresses specific compiler warnings</li>
+  <li><code>@FunctionalInterface</code> — verifies interface has exactly one abstract method</li>
+  <li><code>@SafeVarargs</code> — suppress unchecked warnings on varargs methods</li>
+</ul>
+<p>Custom annotations are defined with <code>@interface</code> and can have retention policies (<code>SOURCE</code>, <code>CLASS</code>, <code>RUNTIME</code>). Runtime annotations can be read via reflection.</p>
+<pre>@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface MyAnnotation {
+    String value() default "default";
+}</pre>
+
+<h3 class="s">Reflection <span class="it">interview</span></h3>
+<p>Reflection lets you inspect and manipulate classes, methods, and fields at <strong>runtime</strong>, even private ones. Used heavily in frameworks (Spring, JUnit, Hibernate).</p>
+<pre>// 3 ways to get a Class object
+Class&lt;?&gt; clazz = String.class;                     // compile-time
+Class&lt;?&gt; clazz = obj.getClass();                   // from instance
+Class&lt;?&gt; clazz = Class.forName("java.lang.String"); // by name (can throw ClassNotFoundException)
+
+// Inspect
+clazz.getName();                     // "java.lang.String"
+clazz.getDeclaredFields();           // all fields including private
+clazz.getDeclaredMethods();          // all methods
+clazz.getSuperclass();               // parent class
+clazz.getInterfaces();               // implemented interfaces
+
+// Access a private field
+Field f = clazz.getDeclaredField("value");
+f.setAccessible(true);               // bypass private restriction
+Object val = f.get(instance);        // read
+f.set(instance, newValue);          // write
+
+// Invoke a method dynamically
+Method m = clazz.getDeclaredMethod("myMethod", String.class);
+m.setAccessible(true);
+m.invoke(instance, "argument");      // calls instance.myMethod("argument")
+
+// Create an instance
+Constructor&lt;?&gt; c = clazz.getDeclaredConstructor();
+Object obj = c.newInstance();</pre>
+<ul>
+  <li>Reflection breaks encapsulation — use only when necessary (frameworks, tools)</li>
+  <li>Slower than direct calls — avoid in performance-critical loops</li>
+  <li>Spring uses reflection to wire beans; JUnit uses it to discover test methods</li>
+</ul>
+</section>
+
+<!-- 3. STRINGS -->
+<section id="strings">
+<h2 class="st"><span class="n">3</span> Strings</h2>
+
+<h3 class="s">Immutability <span class="it">interview</span></h3>
+<p>Strings are <strong>immutable</strong> — every "modification" creates a new <code>String</code> object. Original is unchanged. Why: thread safety, security (used in class loading &amp; network), enables the String Pool.</p>
+
+<h3 class="s">String Pool &amp; intern() <span class="it">interview</span></h3>
+<pre>String a = "hello";        // goes to pool
+String b = "hello";        // reused from pool
+String c = new String("hello"); // new heap object (NOT pool)
+
+a == b        // true  — same pool reference
+a == c        // false — different object
+a.equals(c)   // true  — same content ✅</pre>
+<p>Call <code>c.intern()</code> to put a heap string into the pool and get the pooled reference back.</p>
+<div class="cl danger">Always use <code>.equals()</code> for String comparison. Never <code>==</code> — you'll get burned by the pool.</div>
+
+<h3 class="s">String vs StringBuffer vs StringBuilder <span class="it">interview</span></h3>
+<table>
+  <tr><th></th><th>String</th><th>StringBuffer</th><th>StringBuilder</th></tr>
+  <tr><td>Mutable?</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>Thread-safe?</td><td>Yes (immutable)</td><td>Yes (synchronized)</td><td>No</td></tr>
+  <tr><td>Performance</td><td>Slow in loops (creates objects)</td><td>Medium</td><td>Fastest ✅</td></tr>
+  <tr><td>Use when</td><td>Fixed values</td><td>Multi-threaded mutation</td><td>Single-threaded building</td></tr>
+</table>
+<div class="cl danger">String concatenation inside a loop creates O(n) objects — always use <code>StringBuilder</code> in loops!</div>
+
+<h3 class="s">Common String Methods <span class="it">interview</span></h3>
+<pre>String s = "Hello World";
+
+s.length()           // 11
+s.charAt(0)          // 'H'
+s.indexOf("World")   // 6
+s.contains("World")  // true
+s.startsWith("He")   // true
+s.endsWith("ld")     // true
+s.substring(6)       // "World"
+s.substring(0, 5)    // "Hello"
+s.toLowerCase()      // "hello world"
+s.toUpperCase()      // "HELLO WORLD"
+s.trim()             // removes leading/trailing whitespace
+s.strip()            // same as trim() but Unicode-aware (Java 11+)
+s.replace('l','r')   // "Herro Worrd"
+s.replace("World", "Java") // "Hello Java"
+s.split(" ")         // ["Hello", "World"]
+s.toCharArray()      // char[]
+s.equals("Hello World")     // true (content compare)
+s.equalsIgnoreCase("HELLO WORLD") // true
+s.isEmpty()          // false (length == 0?)
+s.isBlank()          // false (Java 11 — only whitespace?)
+String.valueOf(42)   // "42" (convert to String)
+String.join("-", "a", "b", "c")  // "a-b-c"</pre>
+</section>
+
+<!-- 4. COLLECTIONS -->
+<section id="collections">
+<h2 class="st"><span class="n">4</span> Collections Framework</h2>
+
+<h3 class="s">Hierarchy</h3>
+<div class="tree">Iterable
+  └── Collection
+        ├── List  → ArrayList, LinkedList, Vector
+        ├── Queue → PriorityQueue, LinkedList
+        │     └── Deque → ArrayDeque, LinkedList
+        └── Set   → HashSet, LinkedHashSet, TreeSet, EnumSet
+
+Map (separate — does NOT extend Collection or Iterable directly)
+  ├── HashMap, LinkedHashMap, Hashtable
+  └── SortedMap → TreeMap</div>
+<p><strong>Collection</strong> (interface) — container for elements with add/remove/iterate.<br>
+<strong>Collections</strong> (utility class) — static algorithms: <code>sort()</code>, <code>shuffle()</code>, <code>binarySearch()</code>, <code>unmodifiableList()</code>, etc.</p>
+
+<h3 class="s">List Implementations</h3>
+<table>
+  <tr><th></th><th>ArrayList</th><th>LinkedList</th><th>Vector</th></tr>
+  <tr><td>Backed by</td><td>Dynamic array</td><td>Doubly linked list</td><td>Dynamic array</td></tr>
+  <tr><td>Random access</td><td>O(1) ✅</td><td>O(n)</td><td>O(1)</td></tr>
+  <tr><td>Insert/delete (middle)</td><td>O(n)</td><td>O(1)</td><td>O(n)</td></tr>
+  <tr><td>Thread-safe</td><td>No</td><td>No</td><td>Yes (legacy, overhead)</td></tr>
+  <tr><td>Use now?</td><td>✅ Default choice</td><td>Frequent insert/delete</td><td>❌ Use ArrayList</td></tr>
+</table>
+
+<h3 class="s">Map Implementations <span class="it">interview</span></h3>
+<table>
+  <tr><th></th><th>HashMap</th><th>LinkedHashMap</th><th>TreeMap</th><th>Hashtable</th></tr>
+  <tr><td>Order</td><td>None</td><td>Insertion order</td><td>Sorted by key</td><td>None</td></tr>
+  <tr><td>Null keys</td><td>1 allowed</td><td>1 allowed</td><td>Not allowed</td><td>Not allowed</td></tr>
+  <tr><td>Thread-safe</td><td>No</td><td>No</td><td>No</td><td>Yes (legacy)</td></tr>
+  <tr><td>Performance</td><td>O(1) avg</td><td>O(1) avg</td><td>O(log n)</td><td>O(1) avg</td></tr>
+</table>
+
+<h3 class="s">Set &amp; Queue</h3>
+<ul>
+  <li><strong>HashSet</strong> — no order, O(1), one null allowed. Backed by HashMap.</li>
+  <li><strong>LinkedHashSet</strong> — maintains insertion order</li>
+  <li><strong>TreeSet</strong> — sorted (uses Comparable/Comparator), O(log n), no nulls</li>
+  <li><strong>EnumSet</strong> — optimized for enum values, very fast, backed by bit vector</li>
+  <li><strong>PriorityQueue</strong> — min-heap by default, ordered by natural order or Comparator</li>
+  <li><strong>ArrayDeque</strong> — double-ended queue, faster than Stack/LinkedList for most uses. Stack is deprecated — use Deque.</li>
+</ul>
+
+<h3 class="s">equals() and hashCode() Contract <span class="it">interview</span></h3>
+<div class="cl danger">
+  <strong>Rule:</strong> If <code>a.equals(b) == true</code> then <code>a.hashCode() == b.hashCode()</code> MUST also be true.<br>
+  Same hashCode ≠ equal (that's a collision — allowed). Always override BOTH together.<br>
+  Breaking this contract silently breaks HashMap/HashSet — objects become impossible to find.
+</div>
+
+<h3 class="s">Comparable vs Comparator <span class="it">interview</span></h3>
+<table>
+  <tr><th>Comparable (<code>java.lang</code>)</th><th>Comparator (<code>java.util</code>)</th></tr>
+  <tr><td>Internal — the class itself implements it</td><td>External — separate class or lambda</td></tr>
+  <tr><td><code>compareTo(T other)</code></td><td><code>compare(T o1, T o2)</code></td></tr>
+  <tr><td>One natural order per class</td><td>Multiple different orderings possible</td></tr>
+</table>
+
+<h3 class="s">Iteration <span class="it">interview</span></h3>
+<ul>
+  <li><strong>Enumeration</strong> — old (Vector, Hashtable), no <code>remove()</code></li>
+  <li><strong>Iterator</strong> — modern: <code>hasNext()</code>, <code>next()</code>, <code>remove()</code></li>
+  <li><strong>ListIterator</strong> — bidirectional, for Lists only</li>
+  <li><code>Map</code> is not Iterable — use views: <code>entrySet()</code>, <code>keySet()</code>, <code>values()</code></li>
+</ul>
+
+<h3 class="s">Fail-Fast vs Fail-Safe <span class="it">interview</span></h3>
+<table>
+  <tr><th>Fail-Fast</th><th>Fail-Safe</th></tr>
+  <tr><td>Throws <code>ConcurrentModificationException</code> on concurrent modification</td><td>Works on a snapshot copy — no exception</td></tr>
+  <tr><td>ArrayList, HashMap iterators</td><td>CopyOnWriteArrayList, ConcurrentHashMap</td></tr>
+  <tr><td>Operates directly on original data</td><td>May not reflect latest changes</td></tr>
+</table>
+</section>
+
+<!-- 5. EXCEPTIONS -->
+<section id="exceptions">
+<h2 class="st"><span class="n">5</span> Exception Handling</h2>
+
+<h3 class="s">Hierarchy <span class="it">interview</span></h3>
+<div class="tree">Throwable
+  ├── Error              (unchecked — JVM level, don't catch)
+  │     ├── OutOfMemoryError
+  │     └── StackOverflowError
+  └── Exception
+        ├── RuntimeException   (unchecked — compiler doesn't force handling)
+        │     ├── NullPointerException
+        │     ├── ClassCastException
+        │     └── ArrayIndexOutOfBoundsException
+        └── (all other checked exceptions)
+              ├── IOException
+              └── SQLException</div>
+
+<h3 class="s">Checked vs Unchecked <span class="it">interview</span></h3>
+<table>
+  <tr><th>Checked</th><th>Unchecked</th></tr>
+  <tr><td>Compiler forces try-catch or <code>throws</code> declaration</td><td>Compiler does not force handling</td></tr>
+  <tr><td>Exception subclasses (not RuntimeException)</td><td>RuntimeException subclasses</td></tr>
+  <tr><td>Recoverable: file not found, network timeout</td><td>Programming bugs: null pointer, bad argument</td></tr>
+</table>
+
+<h3 class="s">try-catch-finally Rules <span class="it">interview</span></h3>
+<ul>
+  <li><code>finally</code> always runs — even with a <code>return</code> in <code>try</code></li>
+  <li>If both <code>try</code> and <code>finally</code> have <code>return</code> — <strong>finally's return wins</strong>, try's is silently discarded</li>
+  <li><code>finally</code> does NOT run on: <code>System.exit()</code>, JVM crash, infinite loop in <code>try</code></li>
+  <li>Nothing (not even variable declarations) between <code>try</code>, <code>catch</code>, <code>finally</code> — compile error</li>
+  <li>More specific exceptions MUST come before general — otherwise "unreachable code" compile error</li>
+  <li>Multi-catch: <code>catch (IOException | SQLException e)</code></li>
+  <li>Duplicate exception in same catch = compile error</li>
+  <li><strong>Errors are NOT caught by <code>catch (Exception e)</code></strong> — need <code>catch (Throwable t)</code></li>
+</ul>
+
+<h3 class="s">throw vs throws <span class="it">interview</span></h3>
+<ul>
+  <li><code>throw</code> — throws the actual exception object: <code>throw new IllegalArgumentException("bad");</code></li>
+  <li><code>throws</code> — method signature declaration: <code>public void read() throws IOException</code></li>
+</ul>
+
+<h3 class="s">Try-with-Resources <span class="it">interview</span></h3>
+<p>Auto-closes any <code>AutoCloseable</code> resource after the block, even if an exception occurs. Replaces old try-finally close patterns.</p>
+<pre>try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+    System.out.println(br.readLine());
+} // br closed automatically ✅</pre>
+
+<h3 class="s">Exception Propagation</h3>
+<p>When an exception is thrown, JVM searches call stack upward for a matching catch. If none found — default handler terminates the program and prints the stack trace.</p>
+
+<h3 class="s">Overriding &amp; Exceptions <span class="it">interview</span></h3>
+<ul>
+  <li>Parent throws <strong>checked</strong> → child can: throw same, throw subclass, or throw nothing. Cannot throw a broader checked exception.</li>
+  <li>Parent throws <strong>unchecked</strong> → child can do anything</li>
+</ul>
+
+<h3 class="s">Custom Exceptions</h3>
+<pre>// Checked
+class InsufficientFundsException extends Exception {
+    InsufficientFundsException(String msg) { super(msg); }
+}
+// Unchecked
+class InvalidOrderException extends RuntimeException {
+    InvalidOrderException(String msg) { super(msg); }
+}</pre>
+
+<h3 class="s">final vs finally vs finalize <span class="it">interview</span></h3>
+<table>
+  <tr><th>Keyword</th><th>Meaning</th></tr>
+  <tr><td><code>final</code> field</td><td>Constant — cannot be reassigned (but object can change internally)</td></tr>
+  <tr><td><code>final</code> method</td><td>Cannot be overridden</td></tr>
+  <tr><td><code>final</code> class</td><td>Cannot be extended</td></tr>
+  <tr><td><code>finally</code></td><td>Always-runs cleanup block in try-catch</td></tr>
+  <tr><td><code>finalize()</code></td><td>Called by GC before object removal — <strong>deprecated</strong>, use try-with-resources</td></tr>
+</table>
+</section>
+
+<!-- 6. FUNCTIONAL -->
+<section id="functional">
+<h2 class="st"><span class="n">6</span> Functional Programming</h2>
+
+<h3 class="s">Functional Interfaces <span class="it">interview</span></h3>
+<p>Interface with exactly <strong>one abstract method</strong>. Annotate with <code>@FunctionalInterface</code>. Can be implemented directly with a lambda or method reference.</p>
+<table>
+  <tr><th>Interface</th><th>Method</th><th>Used in</th></tr>
+  <tr><td><code>Predicate&lt;T&gt;</code></td><td><code>test(T) → boolean</code></td><td><code>filter()</code></td></tr>
+  <tr><td><code>Function&lt;T,R&gt;</code></td><td><code>apply(T) → R</code></td><td><code>map()</code></td></tr>
+  <tr><td><code>Consumer&lt;T&gt;</code></td><td><code>accept(T) → void</code></td><td><code>forEach()</code></td></tr>
+  <tr><td><code>Supplier&lt;T&gt;</code></td><td><code>get() → T</code></td><td>lazy creation</td></tr>
+  <tr><td><code>BinaryOperator&lt;T&gt;</code></td><td><code>apply(T,T) → T</code></td><td><code>reduce()</code></td></tr>
+  <tr><td><code>Runnable</code></td><td><code>run() → void</code></td><td>threads</td></tr>
+  <tr><td><code>Callable&lt;T&gt;</code></td><td><code>call() → T (throws)</code></td><td>threads with return value</td></tr>
+</table>
+
+<h3 class="s">Lambda Expressions</h3>
+<pre>Runnable r = () -&gt; System.out.println("hi");
+Predicate&lt;String&gt; isEmpty = s -&gt; s.isEmpty();
+Function&lt;Integer, Integer&gt; square = x -&gt; x * x;
+BinaryOperator&lt;Integer&gt; add = (a, b) -&gt; a + b;</pre>
+
+<h3 class="s">Method References</h3>
+<pre>Function&lt;String, Integer&gt; parse = Integer::parseInt;   // static method
+Consumer&lt;String&gt; print = System.out::println;           // instance on type
+Supplier&lt;ArrayList&gt; factory = ArrayList::new;           // constructor ref</pre>
+
+<h3 class="s">Streams <span class="it">interview</span></h3>
+<p>A lazy, functional pipeline to process data — sequential or parallel. Used once and then consumed.</p>
+<pre>List&lt;String&gt; result = names.stream()
+    .filter(n -&gt; n.startsWith("A"))    // intermediate (lazy)
+    .map(String::toUpperCase)           // intermediate (lazy)
+    .sorted()                           // intermediate (lazy)
+    .collect(Collectors.toList());      // terminal — triggers execution</pre>
+<div class="g2">
+<div class="card"><div class="ct">Intermediate (lazy)</div>
+  <code>filter()</code>, <code>map()</code>, <code>flatMap()</code>, <code>sorted()</code>, <code>distinct()</code>, <code>limit(n)</code>, <code>skip(n)</code>, <code>peek()</code>
+</div>
+<div class="card"><div class="ct">Terminal (eager — triggers pipeline)</div>
+  <code>collect()</code>, <code>forEach()</code>, <code>reduce()</code>, <code>count()</code>, <code>findFirst()</code>, <code>anyMatch()</code>, <code>allMatch()</code>, <code>min()</code>, <code>max()</code>
+</div>
+</div>
+<ul>
+  <li>Stream functional interfaces: <code>Predicate</code> → filter, <code>Function</code> → map, <code>Consumer</code> → forEach, <code>BinaryOperator</code> → reduce</li>
+  <li>Use <code>.parallelStream()</code> for parallel processing (uses ForkJoin common pool)</li>
+</ul>
+
+<h3 class="s">Optional&lt;T&gt; <span class="it">interview</span></h3>
+<p>A container object that may or may not contain a non-null value. Designed to avoid <code>NullPointerException</code> and make the possibility of absence explicit in the API design.</p>
+<pre>Optional&lt;String&gt; opt = Optional.of("hello");     // contains value
+Optional&lt;String&gt; empty = Optional.empty();        // no value
+Optional&lt;String&gt; nullable = Optional.ofNullable(getValue()); // may be null
+
+opt.isPresent()          // true
+opt.isEmpty()            // false (Java 11+)
+opt.get()                // "hello" (throws if empty — avoid this)
+opt.orElse("default")   // returns value or default
+opt.orElseGet(() -&gt; computeDefault())  // lazy fallback
+opt.orElseThrow(() -&gt; new RuntimeException("not found"))
+opt.map(String::toUpperCase)   // Optional&lt;String&gt; "HELLO"
+opt.filter(s -&gt; s.length() &gt; 3) // Optional with value only if test passes
+opt.ifPresent(System.out::println) // runs if value present</pre>
+<div class="cl info">Use <code>Optional</code> as return type of methods that might not have a result. Don't use it for fields or method parameters.</div>
+
+<h3 class="s">Date &amp; Time API (Java 8+) <span class="it">interview</span></h3>
+<p>The old <code>Date</code> and <code>Calendar</code> classes were mutable, not thread-safe, and confusingly designed. Java 8 introduced <code>java.time</code> — immutable, thread-safe, and intuitive.</p>
+<table>
+  <tr><th>Class</th><th>Represents</th></tr>
+  <tr><td><code>LocalDate</code></td><td>Date only — year/month/day, no time, no timezone</td></tr>
+  <tr><td><code>LocalTime</code></td><td>Time only — hours/minutes/seconds</td></tr>
+  <tr><td><code>LocalDateTime</code></td><td>Date + time, no timezone</td></tr>
+  <tr><td><code>ZonedDateTime</code></td><td>Date + time + timezone</td></tr>
+  <tr><td><code>Instant</code></td><td>A point in time (machine timestamp)</td></tr>
+  <tr><td><code>Duration</code></td><td>Elapsed time (hours, minutes, seconds)</td></tr>
+  <tr><td><code>Period</code></td><td>Date-based amount (years, months, days)</td></tr>
+</table>
+<pre>LocalDate today = LocalDate.now();
+LocalDate birthday = LocalDate.of(2000, 4, 15);
+Period age = Period.between(birthday, today);
+
+LocalDateTime now = LocalDateTime.now();
+DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+String formatted = now.format(fmt);</pre>
+
+<h3 class="s">Java 8+ Key Features Quick Reference</h3>
+<table>
+  <tr><th>Feature</th><th>Java Version</th><th>What it adds</th></tr>
+  <tr><td>Lambda expressions</td><td>8</td><td>Inline functional interface implementations</td></tr>
+  <tr><td>Stream API</td><td>8</td><td>Functional pipeline for collections</td></tr>
+  <tr><td>Optional&lt;T&gt;</td><td>8</td><td>Explicit null safety</td></tr>
+  <tr><td>Default &amp; static interface methods</td><td>8</td><td>Interfaces with implementations</td></tr>
+  <tr><td>Date/Time API (java.time)</td><td>8</td><td>Replaces legacy Date/Calendar</td></tr>
+  <tr><td>var</td><td>10</td><td>Local type inference</td></tr>
+  <tr><td>Text blocks</td><td>15</td><td>Multi-line strings with <code>"""...</code>"""</code></td></tr>
+  <tr><td>Records</td><td>16</td><td>Immutable data classes — auto-generates getters, equals, hashCode, toString</td></tr>
+  <tr><td>Sealed classes</td><td>17</td><td>Restricts which classes can extend/implement</td></tr>
+  <tr><td>Pattern matching instanceof</td><td>16</td><td><code>if (obj instanceof Dog d) { d.bark(); }</code></td></tr>
+  <tr><td>Virtual threads</td><td>21</td><td>Lightweight threads for I/O-bound workloads</td></tr>
+</table>
+</section>
+
+<!-- 7. IO -->
+<section id="io">
+<h2 class="st"><span class="n">7</span> I/O &amp; NIO</h2>
+
+<h3 class="s">Byte vs Character Streams</h3>
+<table>
+  <tr><th>Byte Streams</th><th>Character Streams</th></tr>
+  <tr><td>Raw binary data (images, audio, etc.)</td><td>Text data</td></tr>
+  <tr><td><code>FileInputStream</code>, <code>FileOutputStream</code></td><td><code>FileReader</code>, <code>FileWriter</code></td></tr>
+  <tr><td><code>BufferedInputStream</code>, <code>BufferedOutputStream</code></td><td><code>BufferedReader</code>, <code>BufferedWriter</code></td></tr>
+</table>
+
+<h3 class="s">Buffering — Why It Matters</h3>
+<p>Reading directly from <code>FileReader</code> makes an OS call per character — very expensive. Wrapping in <code>BufferedReader</code> reads a large chunk into RAM and serves reads from the buffer — much faster in most cases.</p>
+<pre>// wrap the source in a buffer — best practice
+BufferedReader br = new BufferedReader(new FileReader("file.txt"));</pre>
+
+<h3 class="s">Java NIO (New I/O)</h3>
+<ul>
+  <li>Alternative to traditional I/O — uses <strong>Buffers</strong> and <strong>Channels</strong> instead of streams</li>
+  <li><strong>Channel</strong> — like a stream but <strong>bidirectional</strong> (read AND write)</li>
+  <li>Supports <strong>non-blocking</strong> operations — essential for high-throughput servers</li>
+  <li>Key classes: <code>ByteBuffer</code>, <code>FileChannel</code>, <code>SocketChannel</code>, <code>Selector</code></li>
+</ul>
+</section>
+
+<!-- 8. THREADS -->
+<section id="threads">
+<h2 class="st"><span class="n">8</span> Multithreading &amp; Concurrency</h2>
+
+<h3 class="s">Process vs Thread</h3>
+<ul>
+  <li><strong>Process</strong> — running instance of a program; has its own memory space</li>
+  <li><strong>Thread</strong> — smallest unit of execution inside a process; threads share the heap but each has its own stack</li>
+</ul>
+
+<h3 class="s">Creating Threads <span class="it">interview</span></h3>
+<pre>// 1. Extend Thread
+class MyThread extends Thread { public void run() { ... } }
+new MyThread().start();
+
+// 2. Implement Runnable (preferred — keeps class hierarchy free)
+Thread t = new Thread(() -> System.out.println("running"));
+t.start();
+
+// 3. Callable — returns a value, can throw checked exceptions
+// Must use ExecutorService, not Thread directly
+Future&lt;Integer&gt; f = executor.submit(() -> computeResult());</pre>
+<div class="cl info"><code>run()</code> runs on the SAME thread. <code>start()</code> spawns a NEW thread then calls <code>run()</code> inside it. Runnable and Callable are functional interfaces so lambdas work directly.</div>
+
+<h3 class="s">Thread Attributes &amp; States</h3>
+<p>States: <code>NEW → RUNNABLE → BLOCKED / WAITING / TIMED_WAITING → TERMINATED</code></p>
+<ul>
+  <li><code>priority</code>: MIN=1, NORM=5, MAX=10 — just a hint, not guaranteed</li>
+  <li><strong>Daemon thread</strong> — automatically killed when all non-daemon threads finish</li>
+</ul>
+
+<h3 class="s">Key Thread Methods <span class="it">interview</span></h3>
+<table>
+  <tr><th>Method</th><th>Description</th></tr>
+  <tr><td><code>start()</code></td><td>Spawns new thread, then calls run()</td></tr>
+  <tr><td><code>sleep(ms)</code></td><td>Pauses thread but <strong>keeps the lock</strong></td></tr>
+  <tr><td><code>wait()</code></td><td>Pauses thread AND <strong>releases the lock</strong>; waits for notify()</td></tr>
+  <tr><td><code>notify()</code></td><td>Wakes one waiting thread on this monitor</td></tr>
+  <tr><td><code>notifyAll()</code></td><td>Wakes all waiting threads on this monitor</td></tr>
+  <tr><td><code>join()</code></td><td>Current thread waits until this thread finishes</td></tr>
+  <tr><td><code>interrupt()</code></td><td>Signals thread to stop (doesn't force it)</td></tr>
+  <tr><td><code>isInterrupted()</code></td><td>Checks interrupt flag, does NOT clear it</td></tr>
+  <tr><td><code>interrupted()</code></td><td>Checks interrupt flag AND clears it</td></tr>
+  <tr><td><code>yield()</code></td><td>Hint to CPU to schedule another thread (not guaranteed)</td></tr>
+</table>
+
+<h3 class="s">Synchronization Tools <span class="it">interview</span></h3>
+<div class="card"><div class="ct">volatile</div>
+  <p>Guarantees <strong>visibility</strong> only — reads directly from main memory, not CPU cache. Does NOT guarantee atomicity. Use for simple flags.</p>
+</div>
+<div class="card"><div class="ct">synchronized keyword</div>
+  <p>Monitor lock. Each synchronized block/method acquires the object's lock (or class lock for static). Automatically releases on exit. Simplest way to synchronize.</p>
+</div>
+<div class="card"><div class="ct">ReentrantLock</div>
+  <p>Like synchronized but with more power: manual <code>lock()</code>/<code>unlock()</code>, fair mode (FIFO), <code>tryLock()</code>, and <strong>Condition</strong> support. Can lock multiple times from same thread without deadlocking itself (re-entrant).</p>
+  <p><strong>Condition</strong> — tied to a ReentrantLock; <code>await()</code>/<code>signal()</code> for specific conditions. More precise than wait/notify because signal() only wakes threads on that specific condition.</p>
+</div>
+<div class="card"><div class="ct">Atomic Classes</div>
+  <p>Lock-free, CPU-level CAS operations: <code>AtomicInteger</code>, <code>AtomicLong</code>, <code>AtomicReference</code>. Best for counters and simple shared flags.</p>
+</div>
+<div class="card"><div class="ct">Other Synchronizers</div>
+  <ul>
+    <li><strong>ReadWriteLock</strong> — multiple readers OR one exclusive writer at a time; useful when reads are frequent and writes are rare</li>
+    <li><strong>Semaphore</strong> — allows at most N threads at a time; <code>acquire()</code> / <code>release()</code></li>
+    <li><strong>CountDownLatch</strong> — threads wait until count reaches zero; one-time use (e.g. wait for N microservices to start)</li>
+    <li><strong>CyclicBarrier</strong> — group of threads wait for each other at a meeting point; reusable (e.g. parallel chunk processing that must merge)</li>
+    <li><strong>Exchanger</strong> — two threads exchange data at a synchronization point</li>
+    <li><strong>ThreadLocal</strong> — per-thread variable; each thread gets its own isolated copy</li>
+  </ul>
+</div>
+
+<h3 class="s">Thread Pool &amp; Executor Framework <span class="it">interview</span></h3>
+<p>Instead of creating a new thread per task (expensive: ~1–2ms + 1MB stack), keep a pool of ready threads.</p>
+<div class="tree">Executor (interface)
+  └── ExecutorService (interface)
+        └── AbstractExecutorService
+              └── ThreadPoolExecutor  ← real engine behind everything
+                    └── ScheduledThreadPoolExecutor</div>
+<p>All factory methods in <code>Executors</code> call <code>ThreadPoolExecutor</code> internally with specific settings:</p>
+<table>
+  <tr><th>Factory Method</th><th>Description</th></tr>
+  <tr><td><code>newFixedThreadPool(n)</code></td><td>Exactly n threads; queue tasks beyond that</td></tr>
+  <tr><td><code>newCachedThreadPool()</code></td><td>Creates threads as needed; reuses idle ones</td></tr>
+  <tr><td><code>newSingleThreadExecutor()</code></td><td>One thread; sequential execution guaranteed</td></tr>
+  <tr><td><code>newScheduledThreadPool(n)</code></td><td>For scheduled/recurring tasks</td></tr>
+  <tr><td><code>newVirtualThreadPerTaskExecutor()</code></td><td>Java 21 — virtual threads, ideal for I/O-bound</td></tr>
+</table>
+<ul>
+  <li><code>execute(Runnable)</code> — fire and forget, no feedback</li>
+  <li><code>submit(Callable)</code> — returns <code>Future&lt;T&gt;</code></li>
+  <li><code>future.get()</code> — blocks until done; <code>future.isDone()</code> — non-blocking check</li>
+</ul>
+
+<h3 class="s">Virtual Threads (Java 21+)</h3>
+<p>When a virtual thread blocks (I/O, sleep), its state (TCB) is saved in heap memory and the OS thread picks up another virtual thread. This allows handling millions of concurrent tasks with a small number of OS threads.</p>
+<div class="cl ok">Best for I/O-bound work. Spring Boot 3.2+: <code>spring.threads.virtual.enabled=true</code> to enable globally.</div>
+
+<h3 class="s">Future, FutureTask, &amp; CompletableFuture <span class="it">interview</span></h3>
+<p><strong>Future problems:</strong> <code>get()</code> blocks, no chaining, no combining multiple futures, ugly error handling. <code>CompletableFuture</code> solves all of this.</p>
+<pre>CompletableFuture.supplyAsync(() -> fetchUserId())   // returns Integer
+    .thenApply(id -> fetchUser(id))                  // takes Integer, returns User
+    .thenApply(user -> user.getName())               // takes User, returns String
+    .exceptionally(e -> "fallback")                  // error handling
+    .thenAccept(System.out::println);                // consume the result</pre>
+<table>
+  <tr><th>Method</th><th>Purpose</th></tr>
+  <tr><td><code>runAsync()</code></td><td>No return value</td></tr>
+  <tr><td><code>supplyAsync()</code></td><td>Async start, with return value</td></tr>
+  <tr><td><code>thenApply()</code></td><td>Transform result (like map)</td></tr>
+  <tr><td><code>thenAccept()</code></td><td>Consume result, no return</td></tr>
+  <tr><td><code>thenRun()</code></td><td>Run after, ignore result</td></tr>
+  <tr><td><code>thenCompose()</code></td><td>Chain futures (like flatMap)</td></tr>
+  <tr><td><code>thenCombine()</code></td><td>Combine two parallel futures</td></tr>
+  <tr><td><code>allOf()</code></td><td>Wait for ALL futures to finish</td></tr>
+  <tr><td><code>anyOf()</code></td><td>Use the FIRST to finish</td></tr>
+  <tr><td><code>exceptionally()</code></td><td>Catch and provide a fallback</td></tr>
+  <tr><td><code>handle()</code></td><td>Handle both success and failure</td></tr>
+</table>
+
+<h3 class="s">Fork/Join Framework</h3>
+<p>Designed for CPU-bound recursive divide-and-conquer. Uses <strong>work-stealing</strong>: each thread has its own deque; idle threads steal tasks from the back of busy threads' deques — minimizes contention.</p>
+<pre>// your own pool
+ForkJoinPool pool = new ForkJoinPool(4);
+Long result = pool.invoke(myTask);
+
+// or the shared common pool (simpler)
+Long result = ForkJoinPool.commonPool().invoke(myTask);</pre>
+<div class="cl info"><code>CompletableFuture.supplyAsync()</code> uses ForkJoin common pool by default.</div>
+
+<h3 class="s">When to Use Which <span class="it">interview</span></h3>
+<table>
+  <tr><th>Scenario</th><th>Best Choice</th></tr>
+  <tr><td>I/O-bound (DB, HTTP, file)</td><td>Virtual threads via <code>newVirtualThreadPerTaskExecutor()</code></td></tr>
+  <tr><td>CPU-bound computation</td><td>Fixed thread pool sized to CPU cores</td></tr>
+  <tr><td>Recursive divide &amp; conquer</td><td>Fork/Join</td></tr>
+  <tr><td>Collections processing</td><td>Parallel streams</td></tr>
+  <tr><td>Async pipelines, chaining</td><td>CompletableFuture</td></tr>
+  <tr><td>Scheduled/recurring tasks</td><td>ScheduledThreadPoolExecutor</td></tr>
+</table>
+
+<h3 class="s">Deadlock, Race Condition &amp; Others <span class="it">interview</span></h3>
+<ul>
+  <li><strong>Race condition</strong> — two threads access shared mutable data concurrently; outcome depends on timing</li>
+  <li><strong>Deadlock</strong> — Thread A holds lock 1 &amp; waits for lock 2; Thread B holds lock 2 &amp; waits for lock 1 — both blocked forever</li>
+  <li><strong>Starvation</strong> — a thread never gets CPU time because higher-priority threads always run first</li>
+  <li><strong>Livelock</strong> — threads keep reacting to each other but neither makes actual progress</li>
+</ul>
+</section>
+
+<!-- 9. JDBC -->
+<section id="jdbc">
+<h2 class="st"><span class="n">9</span> JDBC &amp; Databases</h2>
+<p>JDBC (Java Database Connectivity) is a standard API (interfaces) to communicate with any database using the same Java code.</p>
+
+<h3 class="s">JDBC Hierarchy</h3>
+<table>
+  <tr><th>Component</th><th>Role</th></tr>
+  <tr><td><code>Driver</code></td><td>Registers itself and creates connections to the database</td></tr>
+  <tr><td><code>Connection</code></td><td>Represents one DB connection</td></tr>
+  <tr><td><code>Statement</code></td><td>Executes SQL — <strong>never use</strong>, vulnerable to SQL injection</td></tr>
+  <tr><td><code>PreparedStatement</code></td><td>Safe parameterized SQL — always use ✅</td></tr>
+  <tr><td><code>CallableStatement</code></td><td>Executes stored procedures</td></tr>
+  <tr><td><code>ResultSet</code></td><td>Holds query results, iterated row by row</td></tr>
+</table>
+
+<h3 class="s">JDBC Driver Types</h3>
+<table>
+  <tr><th>Type</th><th>Description</th></tr>
+  <tr><td>Type 1 — JDBC-ODBC Bridge</td><td>Dead — removed in Java 8</td></tr>
+  <tr><td>Type 2 — Native C/C++ library</td><td>Rarely used</td></tr>
+  <tr><td>Type 3 — Middleware server</td><td>Enterprise only</td></tr>
+  <tr><td>Type 4 — Pure Java → DB directly</td><td>✅ Everyone uses this. Just add JAR &amp; works everywhere.</td></tr>
+</table>
+
+<h3 class="s">JDBC URL Format</h3>
+<pre>jdbc:mysql://localhost:3306/mydb
+  |     |         |            |
+  |     |         |            └── database name
+  |     |         └── host:port
+  |     └── which driver (mysql, postgresql, etc.)
+  └── always "jdbc"</pre>
+<p>Modern Java (6+) auto-registers drivers via ServiceLoader from the JAR's <code>META-INF/services/java.sql.Driver</code>.</p>
+
+<h3 class="s">DriverManager vs DataSource <span class="it">interview</span></h3>
+<ul>
+  <li><strong>DriverManager</strong> — creates a new connection every call (50–200ms TCP handshake + auth + session). Use only for testing/scripts.</li>
+  <li><strong>DataSource</strong> — borrows from a connection pool (near instant). Always use in production.</li>
+</ul>
+<p><strong>HikariCP</strong> is the default pool in Spring Boot. Common alternatives: C3P0, DBCP.</p>
+
+<h3 class="s">Raw JDBC Flow</h3>
+<pre>try (Connection conn = dataSource.getConnection();
+     PreparedStatement stmt = conn.prepareStatement(
+         "SELECT * FROM users WHERE id = ?")) {
+    stmt.setInt(1, userId);
+    ResultSet rs = stmt.executeQuery();
+    while (rs.next()) {
+        String name = rs.getString("name");
+    }
+} // auto-closed via try-with-resources ✅</pre>
+<p>Spring simplifies this: <code>JdbcTemplate</code> removes boilerplate; <code>JPA/Hibernate</code> removes SQL entirely.</p>
+
+<h3 class="s">SQL Key Concepts <span class="it">interview</span></h3>
+<ul>
+  <li><strong>INNER JOIN</strong> — only matching rows in both tables</li>
+  <li><strong>LEFT JOIN</strong> — all from left, matched from right (null if no match)</li>
+  <li><strong>RIGHT JOIN</strong> — all from right, matched from left</li>
+  <li><strong>FULL OUTER JOIN</strong> — all from both, null where no match</li>
+  <li><strong>GROUP BY</strong> — must be used with aggregate functions: <code>COUNT, SUM, AVG, MAX, MIN</code></li>
+  <li><strong>HAVING</strong> — filter on aggregate results (like WHERE but after GROUP BY)</li>
+  <li><strong>Indexes</strong> — speed up reads, slow down writes; B-tree by default</li>
+  <li><strong>Subqueries</strong> — a query nested inside another query</li>
+</ul>
+</section>
+
+<!-- 10. WEB -->
+<section id="web">
+<h2 class="st"><span class="n">10</span> Web, Servlets &amp; Java Files</h2>
+
+<h3 class="s">Tomcat — Web Server + Servlet Container</h3>
+<ul>
+  <li>Listens for HTTP, parses into <code>HttpServletRequest</code>/<code>HttpServletResponse</code></li>
+  <li>Routes URLs to the correct servlet</li>
+  <li>Manages servlet lifecycle: <code>init()</code> → <code>service()</code> → <code>destroy()</code></li>
+  <li>Manages a thread pool — one servlet instance, many threads</li>
+</ul>
+<div class="cl danger">Instance variables in servlets are shared across threads — must be thread-safe! Java 21 + Spring Boot 3.2+ support virtual threads with one property.</div>
+
+<h3 class="s">HTTP → Java Conversion</h3>
+<ul>
+  <li>Tomcat converts raw HTTP → <code>HttpServletRequest</code> (headers, params, method, body)</li>
+  <li>Jackson converts JSON/XML body → Java objects (<code>@RequestBody</code>)</li>
+  <li>Spring's DispatcherServlet wires everything automatically</li>
+</ul>
+
+<h3 class="s">Java File Types <span class="it">interview</span></h3>
+<table>
+  <tr><th>File</th><th>What It Is</th></tr>
+  <tr><td><code>.java</code></td><td>Source code you write</td></tr>
+  <tr><td><code>.class</code></td><td>Compiled bytecode (output of <code>javac</code>)</td></tr>
+  <tr><td><code>.jar</code></td><td>ZIP of .class files — your app or a library</td></tr>
+  <tr><td><code>.war</code></td><td>JAR for web apps — deployed to Tomcat (includes servlets, JSP, web.xml)</td></tr>
+  <tr><td><code>.ear</code></td><td>ZIP of WARs + JARs — enterprise apps, deployed to JBoss/WildFly</td></tr>
+  <tr><td><code>.pom</code></td><td>Maven config file — dependencies and build settings</td></tr>
+</table>
+<p><strong>Spring Boot fat jar</strong> — embeds Tomcat inside the JAR. Run with just <code>java -jar myapp.jar</code>, no external server needed. The JAR contains: your code + embedded Tomcat + all dependencies.</p>
+
+<h3 class="s">Full Request Flow</h3>
+<div class="tree">Browser
+  → HTTP Request
+Nginx  (SSL termination, static files, load balancing)
+  → forwards
+Tomcat (HTTP → HttpServletRequest, routes URL → Servlet)
+  → calls
+Service / Repository layer
+  → borrows connection from
+Connection Pool (HikariCP)
+  → uses
+JDBC PreparedStatement
+  → sends SQL via Type 4 Driver (MySQL / PostgreSQL)
+  → TCP to Database
+  → returns rows
+ResultSet → Java Object  (JdbcTemplate or JPA/Hibernate)
+  → Jackson serializes to JSON
+Tomcat sends HTTP Response
+  → Browser</div>
+</section>
+
+<!-- 11. SOLID -->
+<section id="solid">
+<h2 class="st"><span class="n">11</span> SOLID Principles</h2>
+
+<div class="card"><div class="ct">S — Single Responsibility Principle</div>
+  <p>One class = one reason to change. Ask: "How many reasons do I have to change this class?" If more than one → split it.</p>
+  <p>❌ <code>User</code> class handles user data AND sends emails → ✅ <code>User</code> + <code>EmailService</code></p>
+</div>
+<div class="card"><div class="ct">O — Open/Closed Principle</div>
+  <p>Open for extension, closed for modification. Multiple if/else or switch checking types → violation. New behavior = add a new class, don't touch existing code.</p>
+  <p>❌ <code>if type=="circle"... if type=="square"</code> → ✅ <code>Shape</code> interface → <code>Circle</code> implements, <code>Square</code> implements</p>
+</div>
+<div class="card"><div class="ct">L — Liskov Substitution Principle <span class="it">interview</span></div>
+  <p>Subclasses must be fully replaceable by their parent without breaking the program. Violated when a child inherits a method it can't meaningfully implement.</p>
+  <p>❌ <code>Bird → fly()</code> but <code>Penguin extends Bird</code> can't fly → ✅ Split into <code>FlyableBird</code> and base <code>Bird</code></p>
+  <p style="color:var(--ac4);font-style:italic;">"If swapping child for parent breaks behavior → LSP violated." — Breaking ISP usually leads to breaking LSP too.</p>
+</div>
+<div class="card"><div class="ct">I — Interface Segregation Principle</div>
+  <p>Don't force classes to implement methods they don't need. Fat interfaces = violation. Break into thin, focused interfaces.</p>
+  <p>❌ <code>Animal</code> with <code>eat(), fly(), swim()</code> → ✅ <code>Eatable</code>, <code>Flyable</code>, <code>Swimmable</code> — let classes implement only what they need</p>
+</div>
+<div class="card"><div class="ct">D — Dependency Inversion Principle</div>
+  <p>High-level modules should not depend on low-level modules. Both should depend on abstractions. Never reference a concrete class directly — use an interface.</p>
+  <p>❌ <code>UserService</code> creates <code>EmailService</code> internally → ✅ <code>UserService(NotificationSender sender)</code> — inject the interface</p>
+  <p>Tomorrow swap to <code>SMSService</code> → <code>UserService</code> never changes! Two ways: constructor injection or method parameter injection.</p>
+</div>
+</section>
+
+<!-- 12. DESIGN PATTERNS -->
+<section id="patterns">
+<h2 class="st"><span class="n">12</span> Design Patterns</h2>
+<p>Common solutions engineers reached after facing the same problems repeatedly — best practices for recurring scenarios.</p>
+<div class="g2">
+  <div class="card"><div class="ct">Creational</div><p>How objects are created. Singleton, Builder, Prototype, Factory, Abstract Factory.</p></div>
+  <div class="card"><div class="ct">Structural</div><p>How classes/objects are composed into bigger structures. Adapter, Facade, Proxy, Decorator.</p></div>
+</div>
+<div class="card"><div class="ct">Behavioral</div><p>How objects communicate and behave with each other. Chain of Responsibility, Observer, Strategy, Command, etc.</p></div>
+
+<h3 class="s">Singleton — Creational</h3>
+<p>One instance only across the entire application. Thread-safe version uses <strong>double-checked locking</strong>:</p>
+<pre>private static volatile Singleton instance;
+
+public static Singleton getInstance() {
+    if (instance == null) {                  // first check — no lock (performance)
+        synchronized (Singleton.class) {
+            if (instance == null) {          // second check — handles race condition
+                instance = new Singleton();
+            }
+        }
+    }
+    return instance;
+}</pre>
+<ul>
+  <li>First check: avoids acquiring the lock every call (performance)</li>
+  <li>Second check: in case two threads both passed the first check simultaneously</li>
+  <li><code>volatile</code>: ensures threads don't read a stale cached value / partially constructed object</li>
+  <li>Examples: DB connection pool, config manager, logger</li>
+</ul>
+
+<h3 class="s">Builder — Creational</h3>
+<p>For objects with many constructor parameters. Makes creation readable and self-documenting.</p>
+<pre>// ❌ Without builder — confusing, what is "true"? what order?
+new User("ahmed", 25, "cairo", "ahmed@gmail.com", true, "admin");
+
+// ✅ With builder — clear and readable
+User user = new User.Builder()
+    .name("ahmed").age(25).city("cairo")
+    .email("ahmed@gmail.com").isActive(true).role("admin")
+    .build();</pre>
+
+<h3 class="s">Prototype — Creational</h3>
+<p>Copy an existing object instead of creating from scratch when object creation is expensive. Implement <code>Cloneable</code> and override <code>clone()</code>.</p>
+<ul>
+  <li><strong>Shallow copy</strong> — copies primitive values and references (nested objects still shared)</li>
+  <li><strong>Deep copy</strong> — recursively copies nested objects too; fully independent</li>
+</ul>
+
+<h3 class="s">Factory &amp; Abstract Factory — Creational</h3>
+<p><strong>Factory</strong> — separates "which class to create" from the caller. Caller requests a type → factory decides and returns via interface → caller never knows the concrete class.</p>
+<pre>// ❌ messy caller
+if (type.equals("dog")) new Dog();
+else if (type.equals("cat")) new Cat();
+
+// ✅ clean caller
+Animal animal = AnimalFactory.create("dog");</pre>
+
+<p><strong>Abstract Factory</strong> — factory of factories. For families of related objects that must go together.</p>
+<table>
+  <tr><th>Factory</th><th>Abstract Factory</th></tr>
+  <tr><td>One product; if/else returns an object</td><td>Families of products; if/else returns a factory</td></tr>
+  <tr><td>Ex: AnimalFactory creates Dog or Cat</td><td>Ex: DarkFactory creates DarkButton + DarkTextBox + DarkCheckbox</td></tr>
+</table>
+
+<h3 class="s">Structural Patterns — Quick Comparison <span class="it">interview</span></h3>
+<table>
+  <tr><th>Pattern</th><th>Wraps</th><th>Purpose</th><th>Key Mechanic</th></tr>
+  <tr><td><strong>Adapter</strong></td><td>One old service</td><td>Convert incompatible interface</td><td>Implements YOUR interface + holds OLD service as composition; converts inside method</td></tr>
+  <tr><td><strong>Facade</strong></td><td>Multiple services</td><td>Simplify complex operations</td><td>One method calls all services in the correct order</td></tr>
+  <tr><td><strong>Proxy</strong></td><td>One service (same interface)</td><td>Control access (cache, log, auth, lazy load)</td><td>Both proxy and real implement SAME interface; proxy intercepts then forwards</td></tr>
+  <tr><td><strong>Decorator</strong></td><td>Same interface (stackable)</td><td>Add behavior dynamically, no subclassing</td><td>Implements AND takes SAME interface as composition; delegates + adds behavior; can stack</td></tr>
+</table>
+<div class="cl info">All four use <strong>composition over inheritance</strong>, wrap something without changing the original, and hide complexity from the caller.</div>
+
+<pre>// Decorator — Java IO is the classic real-world example
+new BufferedReader(new FileReader("file.txt"));
+// BufferedReader decorates FileReader — adds buffering on top
+
+// Stacking decorators
+Pizza p = new PlainPizza();
+p = new ChocolateDecorator(p);    // + chocolate
+p = new CheeseDecorator(p);       // + cheese on top of that
+p.getPrice(); // sums all layers automatically ✅</pre>
+
+<h3 class="s">Chain of Responsibility — Behavioral</h3>
+<p>Request passes through a chain of handlers. Each handler checks its condition — if OK, passes to next; if not, stops the chain. No handler knows the full chain.</p>
+<pre>// Build the chain
+employee.setNext(manager);
+manager.setNext(finance);
+finance.setNext(borrowHandler);
+
+// Start it
+employee.handle(request);</pre>
+<p>Real world: Servlet Filters, Spring Security filter chain, logging levels (DEBUG→INFO→WARN→ERROR), Express.js middleware (<code>next()</code>).</p>
+
+<h3 class="s">Observer — Behavioral</h3>
+<p>One subject/topic → many subscribers. When something happens, all subscribers are notified automatically. Subscribers are fully decoupled from each other.</p>
+<pre>Topic topic = new Topic();
+topic.subscribe(new EmailSubscriber());
+topic.subscribe(new SMSSubscriber());
+topic.notify("order placed"); // both get notified ✅</pre>
+<p>Real world: Java EventListener, Kafka topics + consumers, Spring <code>@EventListener</code>, React state changes notifying components.</p>
+
+<h3 class="s">Chain vs Observer <span class="it">interview</span></h3>
+<table>
+  <tr><th>Chain of Responsibility</th><th>Observer</th></tr>
+  <tr><td>One request, passes sequentially through handlers</td><td>One event, notifies all subscribers simultaneously</td></tr>
+  <tr><td>Chain can stop early</td><td>All subscribers always get notified</td></tr>
+  <tr><td>Each handler only knows the next one</td><td>Subscribers are fully decoupled from each other</td></tr>
+</table>
+<div class="cl info">Both decouple the sender from the receiver ✅</div>
+</section>
+
+<!-- INTERVIEW GOTCHAS -->
+<section id="interview">
+<h2 class="st red">🔴 Interview Gotchas &amp; Tricky Topics</h2>
+<div class="cl danger">These are the most commonly failed topics in Java interviews. Study these carefully.</div>
+
+<div class="card"><div class="ct">1. Exception catching order</div>
+  <p>More specific exceptions MUST come before general ones. If <code>Exception</code> comes before <code>IOException</code> → compiler says "unreachable code". <code>Error</code> is NOT caught by <code>catch(Exception e)</code> — you need <code>catch(Throwable t)</code>. Duplicate exception types in the same catch = compile error.</p>
+</div>
+<div class="card"><div class="ct">2. finally with return</div>
+  <p>If both <code>try</code> and <code>finally</code> have a <code>return</code> statement, <strong>finally's return wins</strong> — the try's return is silently discarded. Very sneaky exam question.</p>
+</div>
+<div class="card"><div class="ct">3. String == vs .equals()</div>
+  <p><code>==</code> compares references. <code>.equals()</code> compares content. <code>"hello" == "hello"</code> may be <code>true</code> (pool), but <code>new String("hello") == "hello"</code> is always <code>false</code>. Always use <code>.equals()</code> for strings.</p>
+</div>
+<div class="card"><div class="ct">4. Pass-by-value with objects</div>
+  <p>Java is always pass-by-value. For objects, the value passed is the reference (pointer). The method CAN mutate the object's internal state, but it CANNOT make the caller's variable point to a different object. Reassignment inside the method doesn't affect the original.</p>
+</div>
+<div class="card"><div class="ct">5. Diamond problem &amp; multiple inheritance</div>
+  <p>Java classes can't extend multiple classes — if both parents have the same method, the compiler can't choose. Interfaces solve this because the implementing class must explicitly override the conflicting <code>default</code> method.</p>
+</div>
+<div class="card"><div class="ct">6. equals() + hashCode() contract</div>
+  <p>If <code>equals()</code> says two objects are equal, they MUST have the same hashCode. HashMap uses hashCode to find the bucket first, then equals to find the exact key. Overriding only equals silently breaks all collections that use hashing.</p>
+</div>
+<div class="card"><div class="ct">7. Integer cache trap (autoboxing)</div>
+  <p>Integer caches values from -128 to 127. <code>Integer a=127; Integer b=127; a==b</code> → <code>true</code>. But <code>Integer a=200; Integer b=200; a==b</code> → <code>false</code>. Always use <code>.equals()</code> for Integer comparison.</p>
+</div>
+<div class="card"><div class="ct">8. String immutability in loops</div>
+  <p>String concatenation in a loop (<code>s = s + x</code>) creates a new String object every iteration — O(n) objects for n iterations. Always use <code>StringBuilder</code> in loops.</p>
+</div>
+<div class="card"><div class="ct">9. volatile in Singleton</div>
+  <p>Without <code>volatile</code>, a thread can see a partially constructed Singleton object due to CPU instruction reordering. <code>volatile</code> guarantees visibility and prevents reordering — required for correct double-checked locking.</p>
+</div>
+<div class="card"><div class="ct">10. ConcurrentModificationException</div>
+  <p>Modifying a collection while iterating it with a regular for-each throws this exception. Fix: use <code>Iterator.remove()</code> during iteration, collect items to remove and remove after the loop, or use a fail-safe collection (<code>CopyOnWriteArrayList</code>).</p>
+</div>
+<div class="card"><div class="ct">11. sleep() vs wait()</div>
+  <p><code>sleep()</code> pauses the thread but <strong>keeps the lock</strong>. <code>wait()</code> pauses the thread AND <strong>releases the lock</strong>, allowing other threads to enter the synchronized block. <code>wait()</code> must be called from inside a synchronized block.</p>
+</div>
+<div class="card"><div class="ct">12. Variable shadowing</div>
+  <p>A local variable with the same name as an instance field shadows the field in its scope. Easy source of subtle bugs. Use <code>this.field</code> to access the instance field explicitly.</p>
+</div>
+<div class="card"><div class="ct">13. Octal literal trap</div>
+  <p>In Java, a number starting with <code>0</code> is octal (base 8). <code>053</code> = 5×8 + 3 = <strong>43</strong> in decimal. Common trick question in written exams.</p>
+</div>
+<div class="card"><div class="ct">14. Checked exceptions and overriding</div>
+  <p>An overriding method cannot throw a broader checked exception than the parent. If parent throws <code>IOException</code>, child can't throw <code>Exception</code>. Child can throw a subclass of IOException, or throw nothing. No restriction on unchecked exceptions.</p>
+</div>
+<div class="card"><div class="ct">15. abstract class vs interface — when to use which</div>
+  <p>Use an <strong>abstract class</strong> when related classes share code and state. Use an <strong>interface</strong> when you need a contract that unrelated classes can fulfill — and when you need multiple inheritance of type. Java allows implementing multiple interfaces but extending only one class.</p>
+</div>
+<div class="card"><div class="ct">16. Static block order with inheritance</div>
+  <p>When you create a child object, the execution order is always:<br>
+  <strong>1. Parent static blocks</strong> → 2. Child static blocks → 3. Parent instance blocks → 4. Parent constructor → 5. Child instance blocks → 6. Child constructor.<br>
+  Static blocks run only ONCE (when the class is first loaded), never again. Multiple static blocks in the same class run top-to-bottom.</p>
+  <pre>// Output of: new Child();
+// "Parent static"  ← always first
+// "Child static"   ← always second
+// "Parent instance" + "Parent constructor"
+// "Child instance"  + "Child constructor"</pre>
+</div>
+<div class="card"><div class="ct">17. Calling an overridden method from a parent constructor ✔️ Dangerous</div>
+  <p>If a parent constructor calls a method that is overridden in the child, the <strong>child's version runs BEFORE the child's constructor finishes</strong>. The child's fields are not yet initialized — they still hold default values (<code>0</code>, <code>null</code>). This is one of the most subtle Java bugs.</p>
+  <pre>class Parent {
+    Parent() { print(); }     // calls child's print()
+    void print() { System.out.println("Parent"); }
+}
+class Child extends Parent {
+    String name = "ahmed";    // NOT YET set when Parent() runs!
+    void print() { System.out.println(name); } // prints null !
+}</pre>
+</div>
+<div class="card"><div class="ct">18. Static methods — hiding, not overriding</div>
+  <p>Static methods cannot be overridden — they can only be <strong>hidden</strong>. If a child defines a static method with the same signature, it hides the parent's. Which one runs depends on the <strong>reference type</strong> at compile time, not the actual object type.</p>
+  <pre>class Parent { static void greet() { System.out.println("Parent"); } }
+class Child extends Parent { static void greet() { System.out.println("Child"); } }
+
+Parent obj = new Child();
+obj.greet();  // prints "Parent" !! (not Child — no polymorphism for static)</pre>
+</div>
+<div class="card"><div class="ct">19. Constructor chaining rules</div>
+  <ul>
+    <li><code>this()</code> — calls another constructor in the <strong>same class</strong>. Must be the <strong>first statement</strong> in the constructor.</li>
+    <li><code>super()</code> — calls a constructor in the <strong>parent class</strong>. Also must be the first statement.</li>
+    <li>You cannot use both <code>this()</code> and <code>super()</code> in the same constructor — compile error.</li>
+    <li>If you don't write <code>super()</code>, Java inserts a call to <code>super()</code> (no-arg) automatically. If the parent has no no-arg constructor, you must call <code>super(args)</code> explicitly — otherwise compile error.</li>
+  </ul>
+</div>
+<div class="card"><div class="ct">20. try-catch compiler rules summary</div>
+  <ul>
+    <li>Nothing (even a comment or variable declaration) allowed between <code>try</code>, <code>catch</code>, and <code>finally</code> blocks — compile error</li>
+    <li>Specific exception MUST come before general: <code>IOException</code> before <code>Exception</code> — otherwise "unreachable catch" compile error</li>
+    <li>Duplicate exception type in same catch block — compile error</li>
+    <li><code>Error</code> is NOT a subclass of <code>Exception</code> — only caught by <code>catch(Throwable t)</code></li>
+    <li>Catch without try — compile error. Finally without try — compile error.</li>
+    <li>A try block can have: try+catch, try+finally, or try+catch+finally. try alone — compile error.</li>
+  </ul>
+</div>
+<div class="card"><div class="ct">21. Illegal modifier combinations — compile errors <span class="it">interview</span></div>
+  <table>
+    <tr><th>Combination</th><th>Why Illegal</th></tr>
+    <tr><td><code>final abstract</code> class/method</td><td>final = cannot be extended/overridden; abstract = MUST be extended/overridden. Direct contradiction.</td></tr>
+    <tr><td><code>private abstract</code> method</td><td>abstract method must be overridden by a subclass, but private = inaccessible to subclass. Contradiction.</td></tr>
+    <tr><td><code>static abstract</code> method</td><td>abstract requires an instance to override; static belongs to class. Contradiction.</td></tr>
+    <tr><td><code>private protected</code> or <code>public private</code></td><td>Two access modifiers on the same member — always illegal.</td></tr>
+    <tr><td><code>volatile final</code> field</td><td>volatile = can change anytime (bypass cache); final = cannot change. Contradiction.</td></tr>
+    <tr><td><code>native abstract</code> method</td><td>native has an external (C/C++) implementation; abstract has NO implementation. Contradiction.</td></tr>
+    <tr><td><code>synchronized abstract</code> method</td><td>synchronized needs a method body to lock; abstract has no body. Contradiction.</td></tr>
+  </table>
+  <div class="cl info">Easy rule: if two modifiers logically contradict each other, they're illegal together. <code>final+abstract</code> is the #1 most tested pair.</div>
+</div>
+<div class="card"><div class="ct">22. Modifiers that constructors CANNOT have</div>
+  <p>Constructors can only have access modifiers (<code>public</code>, <code>private</code>, <code>protected</code>, or package-private). These are ALL illegal on a constructor:</p>
+  <ul>
+    <li><code>final</code> — compile error (constructors are not inherited so final is meaningless)</li>
+    <li><code>static</code> — compile error (constructors need an instance)</li>
+    <li><code>abstract</code> — compile error (abstract must have no body; constructor must have a body)</li>
+    <li><code>synchronized</code> — compile error</li>
+    <li><code>native</code> — compile error</li>
+    <li><code>strictfp</code> — compile error</li>
+  </ul>
+</div>
+<div class="card"><div class="ct">23. What can be abstract / final — quick reference</div>
+  <table>
+    <tr><th>Target</th><th>abstract?</th><th>final?</th><th>static?</th></tr>
+    <tr><td>Class</td><td>✅ yes</td><td>✅ yes (can't extend)</td><td>Only inner classes</td></tr>
+    <tr><td>Method</td><td>✅ yes (no body)</td><td>✅ yes (can't override)</td><td>✅ yes (but NOT abstract)</td></tr>
+    <tr><td>Field</td><td>❌ no</td><td>✅ yes (constant)</td><td>✅ yes</td></tr>
+    <tr><td>Constructor</td><td>❌ no</td><td>❌ no</td><td>❌ no</td></tr>
+    <tr><td>Interface</td><td>Implicitly abstract</td><td>❌ no</td><td>❌ (members can be)</td></tr>
+    <tr><td>Local variable</td><td>❌ no</td><td>✅ yes (effectively final)</td><td>❌ no</td></tr>
+  </table>
+</div>
+<div class="card"><div class="ct">24. abstract method rules</div>
+  <ul>
+    <li>Abstract method has NO body — just a signature ending in <code>;</code></li>
+    <li>If a class has even ONE abstract method → the class MUST be declared abstract</li>
+    <li>An abstract class can have zero abstract methods (just prevents instantiation)</li>
+    <li>Abstract class CANNOT be instantiated directly with <code>new</code></li>
+    <li>A subclass of an abstract class MUST implement ALL abstract methods, or it must also be declared abstract</li>
+    <li>Interface methods are implicitly <code>public abstract</code> (pre-Java 8) unless <code>default</code> or <code>static</code></li>
+  </ul>
+</div>
+<div class="card"><div class="ct">25. interface modifier rules</div>
+  <ul>
+    <li>Interface itself is implicitly <code>abstract</code> — no need to write it</li>
+    <li>Interface fields are implicitly <code>public static final</code> — always constants</li>
+    <li>Pre-Java 8: all methods implicitly <code>public abstract</code></li>
+    <li>Java 8+: can have <code>default</code> methods (with body) and <code>static</code> methods</li>
+    <li>Java 9+: can have <code>private</code> methods (helper methods for default/static)</li>
+    <li>Cannot declare an interface method as <code>protected</code> or <code>private</code> (pre-Java 9) — compile error</li>
+    <li>Interface cannot be <code>final</code> — it must be implementable</li>
+  </ul>
+</div>
+</section>
+
+</body>
+</html>
+

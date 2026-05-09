@@ -1,0 +1,4 @@
+<div class="flex flex-col items-center justify-center min-h-screen">
+    <app-to-do-input (todoAdded)="handleTodoAdded($event)"></app-to-do-input>
+    <app-to-do-list-items [todos]="todos"></app-to-do-list-items>
+</div>

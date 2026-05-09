@@ -1,0 +1,22 @@
+meta {
+  name: deleteProduct
+  type: http
+  seq: 3
+}
+
+delete {
+  url: http://127.0.0.1:3000/products/6990d45f2e99daa34f7eaf15
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "id":"698f37441477c5d95dfe715f"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

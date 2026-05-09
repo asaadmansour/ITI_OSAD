@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/grades.css' %}">
+{% endblock %}
+
+{% block grades %}
+<main class="grades-wrapper">
+
+    <div class="grades-actions">
+        <a href="{% url 'grades:register' %}" class="register-button">Register New Grade</a>
+
+        <form method="GET" action="{% url 'grades:search' %}" class="search-form">
+            <input type="text" name="q" placeholder="Search by student or subject…" class="search-input">
+            <button type="submit" class="register-button">Check Grades</button>
+        </form>
+    </div>
+
+    <table class="grades-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Student</th>
+                <th>Subject</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grade in grades %}
+            <tr>
+                <td>{{ grade.id }}</td>
+                <td>{{ grade.student }}</td>
+                <td>{{ grade.subject }}</td>
+                <td>{{ grade.grade }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" style="text-align:center;">No grades recorded yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</main>
+{% endblock grades %}

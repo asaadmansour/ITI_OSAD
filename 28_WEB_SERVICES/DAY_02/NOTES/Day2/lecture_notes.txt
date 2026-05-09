@@ -1,0 +1,49 @@
+LECTURE NOTES: INTRODUCTION TO GRAPHQL (ADVANCED)
+
+1. WHAT IS GRAPHQL?
+   - A Query Language for your API and a runtime for fulfilling those queries.
+   - Developed by Facebook to solve mobile data efficiency.
+   - KEY DIFFERENCE FROM REST: 
+     * REST: Multiple endpoints (e.g., /users, /posts/1).
+     * GRAPHQL: Single endpoint (/graphql) where you "ask" for what you want.
+
+2. CORE PROBLEMS SOLVED
+   - OVER-FETCHING: REST returns the whole object. GraphQL lets you pick specific fields.
+   - UNDER-FETCHING: REST requires multiple calls for related data. GraphQL allows fetching a "Graph" of data in one call.
+
+3. THE SCHEMA (THE BLUEPRINT)
+   - TYPE DEFINITION: Defines the shape of data (e.g., User, Post).
+   - SCALAR TYPES: ID, String, Int, Float, Boolean.
+   - ENUMS: Restricting values (e.g., UserRole: ADMIN, TEACHER, STUDENT).
+   - QUERY TYPE: Entry point for READ operations.
+   - MUTATION TYPE: Entry point for WRITE operations (Create, Update, Delete).
+
+4. RESOLVERS (THE ENGINE)
+   - Functions that map to schema fields.
+   - Every field in a query can have its own resolver.
+   - Resolvers can fetch from Databases, APIs, or In-memory arrays.
+
+5. RELATIONSHIPS (THE "GRAPH")
+   - ONE-TO-MANY: One user can have many posts.
+   - MANY-TO-ONE: Many posts belong to one author.
+   - FIELD RESOLVERS: Specialized resolvers that run only when a relational field is requested.
+
+6. INPUT TYPES
+   - Best practice for mutations.
+   - Groups multiple arguments into a single object.
+   - Makes APIs cleaner and easier to version.
+
+7. PERFORMANCE: THE N+1 PROBLEM
+   - Occurs when a query for a list of items triggers a separate sub-query for each item.
+   - Example: Fetch 10 users (1 query) + Fetch posts for each (10 queries) = 11 queries.
+   - Solution: Batching and Caching (e.g., DataLoader).
+
+8. ERROR HANDLING
+   - Standardized error format in GraphQL.
+   - Use 'extensions' for custom error codes (e.g., BAD_USER_INPUT, FORBIDDEN).
+
+9. GRAPHQL VS REST SUMMARY
+   - REST is "Resource-driven" (URL based).
+   - GraphQL is "Demand-driven" (Query based).
+   - REST response is defined by the Server.
+   - GraphQL response is defined by the Client.

@@ -1,0 +1,26 @@
+<div class="flex flex-col items-center justify-center min-h-screen">
+    <h1 class="font-black  text-5xl mb-10"> Users</h1>
+    <input 
+  type="text" 
+  [(ngModel)]="searchTerm" 
+  placeholder="Search users by name"
+  class="mb-6 px-4 py-2 border rounded-lg">
+    <div class="cards grid grid-cols-1 md:grid-cols-2 gap-10">
+        @for (user of filteredUsers; track user.id) {
+            <div class="card flex flex-col items-center border border-gray-300 rounded-3xl p-6">
+                <img class="rounded-full border-2 border-gray-300 mb-4" [src]="user.profilePicture" alt="User" width="120" height="120">
+                <div class="role  text-white px-6 py-1 rounded mb-4"
+                    [ngClass]="{
+                    'bg-red-500': user.role === 'admin',
+                    'bg-blue-500': user.role === 'moderator',
+                    'bg-gray-500': user.role === 'user'
+                    }">
+                {{ user.role }}</div>
+                <div class="text-gray-600">{{ user.username }}</div>
+                <div class="text-gray-600">{{ user.email }}</div>
+                <div class="text-gray-600">{{ user.phoneNumber }}</div>
+                <div class="text-gray-600">{{ user.birthdate }}</div>
+            </div>
+        }
+    </div>
+</div>
